@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# AI crawlers / answer engines — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://santhoshguru.github.io/alarmel-portfolio/sitemap.xml

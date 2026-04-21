@@ -1,5 +1,5 @@
 // ============================================================
-// Sections.jsx — Hero, About, Voices, Range, Platforms, Testimonials, Contact
+// Sections.jsx — Hero, About, Voices, Range, Platforms, Testimonials, FAQ, Contact
 // Framer Motion entry animations were unreliable in this env — using CSS keyframes.
 // ============================================================
 
@@ -17,6 +17,7 @@ function Nav() {
     { href: '#range', label: 'Range' },
     { href: '#platforms', label: 'Platforms' },
     { href: '#testimonials', label: 'Reviews' },
+    { href: '#faq', label: 'FAQ' },
     { href: '#contact', label: 'Contact' },
   ];
   return (
@@ -46,7 +47,7 @@ function Nav() {
 // ------------------------------------------------------------
 function Hero() {
   return (
-    <section id="top" style={{
+    <section id="top" aria-labelledby="hero-heading" style={{
       padding: '60px 40px 80px',
       maxWidth: 1280, margin: '0 auto',
       display: 'grid',
@@ -61,6 +62,7 @@ function Hero() {
         </div>
 
         <h1
+          id="hero-heading"
           className="display anim-up d1"
           style={{
             fontSize: 'clamp(56px, 8.5vw, 124px)',
@@ -118,9 +120,12 @@ function Hero() {
         </div>
         <img
           src="assets/alarmel.jpg"
-          alt="Alarmel"
+          alt="Alarmel, Tamil voice artist and audiobook narrator, photographed at home in Chennai"
+          loading="eager"
+          width="520"
+          height="650"
           style={{
-            width: '100%', display: 'block',
+            width: '100%', height: 'auto', display: 'block',
             filter: 'contrast(1.02) saturate(1.04)',
           }}
         />
@@ -167,14 +172,14 @@ function Marquee() {
 // ------------------------------------------------------------
 function About() {
   return (
-    <section id="about" style={{
+    <section id="about" aria-labelledby="about-heading" style={{
       padding: '120px 40px',
       maxWidth: 1180, margin: '0 auto',
     }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 60, marginBottom: 60 }}>
         <div>
           <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ About</div>
-          <h2 className="display" style={{
+          <h2 id="about-heading" className="display" style={{
             fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500,
             letterSpacing: '-0.02em',
           }}>
@@ -231,7 +236,7 @@ function VoiceSamples({ playerStyle }) {
   const track = filtered[activeIdx] || filtered[0];
 
   return (
-    <section id="voices" style={{
+    <section id="voices" aria-labelledby="voices-heading" style={{
       padding: '120px 40px',
       background: 'var(--paper-2)',
       borderTop: '1px solid var(--rule)',
@@ -241,7 +246,7 @@ function VoiceSamples({ playerStyle }) {
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 50, flexWrap: 'wrap', gap: 20 }}>
           <div>
             <div className="mono" style={{ color: 'var(--accent)', marginBottom: 12 }}>§ Voice Samples · 15 Pieces</div>
-            <h2 className="display" style={{ fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
+            <h2 id="voices-heading" className="display" style={{ fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
               The <em>portfolio.</em>
             </h2>
           </div>
@@ -347,11 +352,11 @@ function Range() {
     { name: 'Devotional', kicker: 'Thiruppavai · bhajan cadence', body: 'Recitation rooted in a household practice. Andal, Subramanya Bharati, and the rhythms of early-morning worship.' },
   ];
   return (
-    <section id="range" style={{ padding: '120px 40px', maxWidth: 1180, margin: '0 auto' }}>
+    <section id="range" aria-labelledby="range-heading" style={{ padding: '120px 40px', maxWidth: 1180, margin: '0 auto' }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 60, flexWrap: 'wrap', gap: 20 }}>
         <div>
           <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ Range</div>
-          <h2 className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
+          <h2 id="range-heading" className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
             One language,<br/><em>many registers.</em>
           </h2>
         </div>
@@ -397,7 +402,7 @@ function Platforms() {
   ];
 
   return (
-    <section id="platforms" style={{
+    <section id="platforms" aria-labelledby="platforms-heading" style={{
       padding: '120px 40px', background: 'var(--paper-2)',
       borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)',
     }}>
@@ -405,7 +410,7 @@ function Platforms() {
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 60, flexWrap: 'wrap', gap: 20 }}>
           <div>
             <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ Platforms & Publications</div>
-            <h2 className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
+            <h2 id="platforms-heading" className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
               Where her voice <em>has travelled.</em>
             </h2>
           </div>
@@ -482,12 +487,12 @@ function Testimonials() {
   };
 
   return (
-    <section id="testimonials" style={{ padding: '120px 40px' }}>
+    <section id="testimonials" aria-labelledby="testimonials-heading" style={{ padding: '120px 40px' }}>
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 50, flexWrap: 'wrap', gap: 20 }}>
           <div>
             <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ From those she's worked with</div>
-            <h2 className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
+            <h2 id="testimonials-heading" className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
               Kind words, <em>honestly given.</em>
             </h2>
           </div>
@@ -589,12 +594,12 @@ function Testimonials() {
 // ------------------------------------------------------------
 function Contact() {
   return (
-    <section id="contact" style={{
+    <section id="contact" aria-labelledby="contact-heading" style={{
       padding: '120px 40px', background: 'var(--ink)', color: 'var(--paper)',
     }}>
       <div style={{ maxWidth: 780, margin: '0 auto' }}>
         <div className="mono" style={{ color: '#E8B987', marginBottom: 14 }}>§ Reach out</div>
-        <h2 className="display" style={{
+        <h2 id="contact-heading" className="display" style={{
           fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 0.95, margin: 0,
           fontWeight: 500, letterSpacing: '-0.02em', color: 'var(--paper)',
         }}>
@@ -637,6 +642,78 @@ function Contact() {
 }
 
 // ------------------------------------------------------------
+// FAQ — common questions (paired with FAQPage JSON-LD in index.html)
+// ------------------------------------------------------------
+function FAQ() {
+  const faqs = [
+    {
+      q: 'What languages do you record in?',
+      a: "Tamil — across literary, commercial, documentary, children's, character and devotional registers. Direction and correspondence can be in English or Tamil.",
+    },
+    {
+      q: 'Do you take remote voiceover work?',
+      a: 'Yes. I record from a treated home studio in Chennai and deliver broadcast-quality WAV or MP3 files — typically within two working days for short projects. Remote sessions across time zones by arrangement.',
+    },
+    {
+      q: 'What kinds of projects do you take on?',
+      a: "Tamil audiobooks, children's stories, audio drama, documentary narration, commercial spots, corporate films, IVR, devotional recitation, and dubbing for short-form and long-form media.",
+    },
+    {
+      q: 'Do you narrate long-form audiobooks?',
+      a: 'Yes. Full-length Tamil fiction and non-fiction, with distinct character voices, careful pacing, and clean, broadcast-ready takes. Prior titles are available on Storytel India and Audible.',
+    },
+    {
+      q: 'Where are you based?',
+      a: 'Chennai, Tamil Nadu, India. Studio hours are Monday–Saturday, 9am – 5pm IST. Remote clients worldwide by arrangement.',
+    },
+    {
+      q: 'How do I commission a voiceover or request a demo?',
+      a: 'Email the brief — length, register, deadline, and any reference voices — via the contact details on this site. Most enquiries receive a reply within two working days.',
+    },
+  ];
+
+  return (
+    <section id="faq" aria-labelledby="faq-heading" style={{
+      padding: '120px 40px', maxWidth: 1180, margin: '0 auto',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 50, flexWrap: 'wrap', gap: 20 }}>
+        <div>
+          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ Frequently asked</div>
+          <h2 id="faq-heading" className="display" style={{
+            fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em',
+          }}>
+            Common <em>questions.</em>
+          </h2>
+        </div>
+        <div style={{ maxWidth: 360, color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6, fontStyle: 'italic' }}>
+          A few things people ask before commissioning a read.
+        </div>
+      </div>
+      <div style={{ borderTop: '1px solid var(--rule)' }}>
+        {faqs.map((f, i) => (
+          <details key={i} style={{
+            borderBottom: '1px solid var(--rule)',
+            padding: '22px 4px',
+          }}>
+            <summary className="display" style={{
+              fontSize: 22, fontWeight: 500, cursor: 'pointer',
+              listStyle: 'none', display: 'flex', justifyContent: 'space-between',
+              alignItems: 'baseline', gap: 20,
+            }}>
+              <span>{f.q}</span>
+              <span className="mono" style={{ color: 'var(--ink-3)', fontSize: 14, flexShrink: 0 }}>+</span>
+            </summary>
+            <p style={{ marginTop: 14, fontSize: 18, lineHeight: 1.65, color: 'var(--ink-2)', maxWidth: 820 }}>
+              {f.a}
+            </p>
+          </details>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ------------------------------------------------------------
 // FOOTER
 // ------------------------------------------------------------
 function Footer() {
@@ -650,4 +727,4 @@ function Footer() {
   );
 }
 
-export { Nav, Hero, Marquee, About, VoiceSamples, Range, Platforms, Testimonials, Contact, Footer };
+export { Nav, Hero, Marquee, About, VoiceSamples, Range, Platforms, Testimonials, FAQ, Contact, Footer };
