@@ -13,7 +13,7 @@ import Player from './Player.jsx';
 function Nav() {
   const links = [
     { href: '#about', label: 'About' },
-    { href: '#voices', label: 'Voice Samples' },
+    { href: '#voices', label: 'Portfolio' },
     { href: '#testimonials', label: 'Testimonials' },
     { href: '#faq', label: 'FAQ' },
     { href: '#contact', label: 'Contact' },
@@ -336,7 +336,6 @@ function VoiceSamples({ playerStyle }) {
 const SEED_TESTIMONIALS = [
   { name: 'Priya Ravindran', role: 'Children\'s publisher, Chennai', stars: 5, body: 'We sent her a manuscript on Thursday and had a full recording by Monday. She treats each story like it belongs to her — the care is audible.' },
   { name: 'Karthik Subramanian', role: 'Documentary producer', stars: 5, body: 'Her Tamil narration has a weight to it that our film really needed. Unhurried. Observational. The takes came in remarkably clean.' },
-  { name: 'Anitha S.', role: 'Audiobook editor', stars: 5, body: 'Twelve hours of fiction, distinct characters throughout, and not a single misread of a long Tamil compound word. We will work with her again.' },
   { name: 'Rajesh Kumar', role: 'Brand manager, wellness', stars: 4, body: 'Warm, grandmotherly, trustworthy — exactly what our 30-second spot asked for. She took direction well and gave us three useable variants.' },
   { name: 'Meenakshi Iyer', role: 'Mother of two', stars: 5, body: 'My children ask for "the Alarmel paatti story" every night. That is the review.' },
 ];
@@ -371,9 +370,9 @@ function Testimonials() {
   };
 
   return (
-    <section id="testimonials" aria-labelledby="testimonials-heading" style={{ padding: '120px 40px' }}>
+    <section id="testimonials" aria-labelledby="testimonials-heading" style={{ padding: '80px 40px' }}>
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 50, flexWrap: 'wrap', gap: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, flexWrap: 'wrap', gap: 20 }}>
           <div>
             <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ From people I've worked with</div>
             <h2 id="testimonials-heading" className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
@@ -454,8 +453,8 @@ function Testimonials() {
         }}>
           {reviews.map((r, i) => (
             <div key={i} style={{
-              breakInside: 'avoid', marginBottom: 28,
-              padding: '28px 30px',
+              breakInside: 'avoid', marginBottom: 20,
+              padding: '24px 28px',
               background: 'var(--paper)',
               border: '1px solid var(--rule)',
             }}>
@@ -476,7 +475,17 @@ function Testimonials() {
 // ------------------------------------------------------------
 // CONTACT
 // ------------------------------------------------------------
+// Light obfuscation: email + phone are assembled at runtime so simple
+// scrapers grepping for "@gmail.com" or contiguous phone digits miss them.
+// Determined scrapers that execute JS still see the assembled values.
+const EMAIL_PARTS = ['alarmel', 'gmail.com'];
+const PHONE_PARTS = ['98408', '63730'];
 function Contact() {
+  const email = EMAIL_PARTS.join('@');
+  const phoneDisplay = '+91 ' + PHONE_PARTS.join(' ');
+  const phoneIntl = '91' + PHONE_PARTS.join('');
+  const whatsappHref = 'https://wa.me/' + phoneIntl + '?text=' +
+    encodeURIComponent("Hi Alarmel, I'd like to reach out about voice-over work.");
   return (
     <section id="contact" aria-labelledby="contact-heading" style={{
       padding: '120px 40px', background: 'var(--ink)', color: 'var(--paper)',
@@ -496,10 +505,9 @@ function Contact() {
         <div style={{ marginTop: 50, borderTop: '1px solid rgba(245,239,227,0.2)', paddingTop: 30 }}>
           <div className="mono" style={{ color: 'var(--paper-3)', marginBottom: 18, opacity: 0.7 }}>Direct</div>
           {[
-            ['Email', 'alarmel@gmail.com', 'mailto:alarmel@gmail.com'],
-            ['WhatsApp', '+91 98408 63730', 'https://wa.me/919840863730?text=Hi%20Alarmel%2C%20I%27d%20like%20to%20reach%20out%20about%20voice-over%20work.'],
+            ['Email', email, 'mailto:' + email],
+            ['WhatsApp', phoneDisplay, whatsappHref],
             ['Studio', 'Chennai · Tamil Nadu · India'],
-            ['Hours', 'Mon–Sat · 9am – 5pm IST'],
           ].map(([k, v, href]) => (
             <div key={k} style={{
               display: 'flex', justifyContent: 'space-between',
@@ -557,7 +565,7 @@ function FAQ() {
     },
     {
       q: 'Where are you based?',
-      a: 'Chennai, Tamil Nadu, India. Studio hours are Monday–Saturday, 9am – 5pm IST. Remote clients worldwide by arrangement.',
+      a: 'Chennai, Tamil Nadu, India. Remote clients worldwide by arrangement.',
     },
     {
       q: 'How do I commission a voiceover or request a demo?',
