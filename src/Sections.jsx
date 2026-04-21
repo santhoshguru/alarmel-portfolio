@@ -198,28 +198,6 @@ function About() {
         </div>
       </div>
 
-      {/* facts strip */}
-      <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0,
-        borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)',
-        marginTop: 40,
-      }}>
-        {[
-          ['15', 'pieces in this portfolio'],
-          ['தமிழ்', 'working language'],
-          ['7', 'categories of work'],
-          ['∞', 'stories still to tell'],
-        ].map(([n, l], i) => (
-          <div key={i} style={{
-            padding: '32px 24px',
-            borderRight: i < 3 ? '1px solid var(--rule)' : 'none',
-          }}>
-            <div className="display" style={{ fontSize: 64, lineHeight: 1, fontWeight: 500, color: 'var(--ink)' }}>{n}</div>
-            <div className="mono" style={{ color: 'var(--ink-3)', marginTop: 10 }}>{l}</div>
-          </div>
-        ))}
-      </div>
-
       {/* personal — interests */}
       <div style={{ marginTop: 80, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60 }}>
         <div>
