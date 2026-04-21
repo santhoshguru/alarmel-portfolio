@@ -1,5 +1,5 @@
 // ============================================================
-// Sections.jsx — Hero, About, Voices, Range, Platforms, Testimonials, FAQ, Contact
+// Sections.jsx — Hero, About, Voices, Testimonials, FAQ, Contact
 // Framer Motion entry animations were unreliable in this env — using CSS keyframes.
 // ============================================================
 
@@ -14,9 +14,7 @@ function Nav() {
   const links = [
     { href: '#about', label: 'About' },
     { href: '#voices', label: 'Voice Samples' },
-    { href: '#range', label: 'Range' },
-    { href: '#platforms', label: 'Platforms' },
-    { href: '#testimonials', label: 'Reviews' },
+    { href: '#testimonials', label: 'Testimonials' },
     { href: '#faq', label: 'FAQ' },
     { href: '#contact', label: 'Contact' },
   ];
@@ -84,7 +82,7 @@ function Hero() {
             fontStyle: 'italic',
           }}
         >
-          A voice shaped by a lifetime of reading, reciting, and listening. I record children's stories, audiobooks, documentary narration, commercial spots and devotional recitations — with the pacing, warmth and care the Tamil language asks for.
+          A Tamil voice shaped by a lifetime of reading, reciting, and listening. I record audiobooks, children's stories, documentary and commercial work from a studio in Chennai.
         </p>
 
         <div
@@ -97,10 +95,10 @@ function Hero() {
             textDecoration: 'none', fontFamily: 'JetBrains Mono', fontSize: 11,
             letterSpacing: '0.18em', textTransform: 'uppercase',
           }}>
-            <span style={{ fontSize: 14 }}>▶</span> Listen to her work
+            <span style={{ fontSize: 14 }}>▶</span> Listen to the portfolio
           </a>
           <a href="#contact" className="mono" style={{ color: 'var(--ink-2)', textDecoration: 'underline', textUnderlineOffset: 4 }}>
-            Get in touch →
+            Commission a read →
           </a>
         </div>
       </div>
@@ -183,7 +181,7 @@ function About() {
             fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500,
             letterSpacing: '-0.02em',
           }}>
-            A passion,<br/><em>properly trained.</em>
+            A craft,<br/><em>long in the ear.</em>
           </h2>
         </div>
         <div style={{ paddingTop: 12 }}>
@@ -192,13 +190,13 @@ function About() {
               float: 'left', fontSize: 92, lineHeight: 0.86,
               padding: '6px 12px 0 0', color: 'var(--accent)', fontWeight: 500,
             }}>I</span>
-            have always loved the sound of a story read aloud — the pause before a surprise, the lilt of a well-placed word, the way a child leans in when a voice softens. Voice acting is the work I came to follow that love into, and I completed my professional training so I could do it with craft, not just affection.
+            loved the sound of a story read aloud long before I recorded one — the pause before a surprise, the lilt of a well-placed word, the way a child leans in when a voice softens. Voice acting is the work I came to follow that love into, studied formally so affection could be met by craft.
           </p>
           <p style={{ fontSize: 19, lineHeight: 1.7, color: 'var(--ink-2)', marginTop: 22 }}>
             My days now begin in a small quiet room with a microphone. I record in Tamil — children's stories mostly, but also audiobooks, documentary narration, commercials, character pieces and devotional recitation. I work slowly, listen closely, and never submit a take I wouldn't listen to twice.
           </p>
           <p style={{ fontSize: 19, lineHeight: 1.7, color: 'var(--ink-2)', marginTop: 22, fontStyle: 'italic' }}>
-            (Before this life in sound, I had a long and steady career in Indian banking. The patience and precision that asked of me turned out to be the same patience and precision the booth asks of me now.)
+            (Before this life in sound, I spent a long, steady career in Indian banking. The patience it asked of me turned out to be the same the booth asks now.)
           </p>
         </div>
       </div>
@@ -212,7 +210,7 @@ function About() {
           </h3>
         </div>
         <div style={{ color: 'var(--ink-2)', fontSize: 17, lineHeight: 1.7 }}>
-          Her readings are shaped by the things she loves outside the studio: a long-running affection for Tamil literature; bhajans sung in the household at dawn; yoga, aerobics and a steady strength-training practice that keeps the breath disciplined; a kitchen she enjoys on weekends; and grandchildren she refuses to miss a single afternoon with.
+          My readings are shaped by the things I love outside the studio: Tamil literature read slowly; bhajans sung in the household at dawn; yoga, aerobics and strength work that keep the breath in order; weekend cooking; and grandchildren whose afternoons I keep for myself.
         </div>
       </div>
     </section>
@@ -251,7 +249,7 @@ function VoiceSamples({ playerStyle }) {
             </h2>
           </div>
           <div style={{ maxWidth: 380, color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6, fontStyle: 'italic' }}>
-            Press play on any piece. The waveform is live — drag along it to listen anywhere in the recording.
+            Press play on any piece. The waveform is live — drag to scrub.
           </div>
         </div>
 
@@ -340,113 +338,6 @@ function VoiceSamples({ playerStyle }) {
 }
 
 // ------------------------------------------------------------
-// RANGE (formerly Languages) — Tamil only, focus on registers
-// ------------------------------------------------------------
-function Range() {
-  const registers = [
-    { name: "Children's", kicker: 'Gentle · warm · playful', body: 'The bedtime voice — unhurried, soft at the edges, with room for mischief. Best suited to picture books, audio stories, and children\'s radio.' },
-    { name: 'Literary', kicker: 'Considered · lyrical · precise', body: 'A register built for Tamil literature and audiobook narration. Careful with meter, comfortable with long sentences and felt silence.' },
-    { name: 'Commercial', kicker: 'Bright · inviting · grounded', body: 'Everyday Tamil for retail, wellness, service and festive spots. Trust-building, never rushed, always in the local idiom.' },
-    { name: 'Documentary', kicker: 'Observational · slow · reflective', body: 'For films and audio guides on craft, culture and place. The voice steps back so the subject can breathe.' },
-    { name: 'Character', kicker: 'A range of voices', body: 'Grandmothers, neighbours, market sellers, temple priestesses — shaped from a long life of listening to how Tamil is actually spoken.' },
-    { name: 'Devotional', kicker: 'Thiruppavai · bhajan cadence', body: 'Recitation rooted in a household practice. Andal, Subramanya Bharati, and the rhythms of early-morning worship.' },
-  ];
-  return (
-    <section id="range" aria-labelledby="range-heading" style={{ padding: '120px 40px', maxWidth: 1180, margin: '0 auto' }}>
-      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 60, flexWrap: 'wrap', gap: 20 }}>
-        <div>
-          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ Range</div>
-          <h2 id="range-heading" className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
-            One language,<br/><em>many registers.</em>
-          </h2>
-        </div>
-        <div style={{ maxWidth: 360, color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6, fontStyle: 'italic' }}>
-          Every piece of work asks for a different Tamil. Here are the registers I work in most.
-        </div>
-      </div>
-
-      <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 0,
-        borderTop: '1px solid var(--rule)', borderLeft: '1px solid var(--rule)',
-      }}>
-        {registers.map((r, i) => (
-          <div key={r.name} style={{
-            padding: '34px 30px',
-            borderRight: '1px solid var(--rule)',
-            borderBottom: '1px solid var(--rule)',
-          }}>
-            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 10 }}>0{i + 1}</div>
-            <h3 className="display" style={{ fontSize: 30, margin: '0 0 4px 0', fontWeight: 500 }}>{r.name}</h3>
-            <div className="mono" style={{ color: 'var(--ink-3)', marginBottom: 14 }}>{r.kicker}</div>
-            <p style={{ color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6, margin: 0 }}>{r.body}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-// ------------------------------------------------------------
-// PLATFORMS — where her work has appeared / is available
-// ------------------------------------------------------------
-function Platforms() {
-  const platforms = [
-    { name: 'Storytel India', kind: 'Audiobook platform', note: 'Tamil children\'s titles' },
-    { name: 'Audible', kind: 'Audiobook platform', note: 'Literary narration' },
-    { name: 'Kuzhanthai Kadhaigal', kind: 'Podcast · Tamil', note: 'Weekly story contributor' },
-    { name: 'Sun Radio', kind: 'Broadcast', note: 'Commercial spots' },
-    { name: 'Pratham Books · StoryWeaver', kind: "Children's publisher", note: 'Read-aloud audio' },
-    { name: 'YouTube — Tamizh Kadhai Neram', kind: 'Channel', note: 'Children\'s series' },
-    { name: 'Spotify', kind: 'Streaming', note: 'Devotional recordings' },
-    { name: 'Private commissions', kind: 'Direct clients', note: 'Corporate, documentary, IVR' },
-  ];
-
-  return (
-    <section id="platforms" aria-labelledby="platforms-heading" style={{
-      padding: '120px 40px', background: 'var(--paper-2)',
-      borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)',
-    }}>
-      <div style={{ maxWidth: 1180, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 60, flexWrap: 'wrap', gap: 20 }}>
-          <div>
-            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ Platforms & Publications</div>
-            <h2 id="platforms-heading" className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
-              Where her voice <em>has travelled.</em>
-            </h2>
-          </div>
-          <div style={{ maxWidth: 340, color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6, fontStyle: 'italic' }}>
-            A growing list. Add your platform to it — she takes new commissions throughout the year.
-          </div>
-        </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: 0,
-          borderTop: '1px solid var(--rule)',
-        }}>
-          {platforms.map((p, i) => (
-            <div key={p.name} style={{
-              padding: '26px 30px',
-              borderBottom: '1px solid var(--rule)',
-              borderRight: i % 2 === 0 ? '1px solid var(--rule)' : 'none',
-              display: 'grid', gridTemplateColumns: '28px 1fr auto', gap: 20, alignItems: 'baseline',
-            }}>
-              <span className="mono" style={{ color: 'var(--ink-3)' }}>{String(i + 1).padStart(2, '0')}</span>
-              <div>
-                <div className="display" style={{ fontSize: 24, fontWeight: 500, lineHeight: 1.1 }}>{p.name}</div>
-                <div className="mono" style={{ color: 'var(--ink-3)', marginTop: 6 }}>{p.kind}</div>
-              </div>
-              <span style={{ color: 'var(--ink-2)', fontSize: 14, fontStyle: 'italic', textAlign: 'right' }}>{p.note}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ------------------------------------------------------------
 // TESTIMONIALS — customer reviews, with an "add your own" form
 // ------------------------------------------------------------
 const SEED_TESTIMONIALS = [
@@ -454,7 +345,7 @@ const SEED_TESTIMONIALS = [
   { name: 'Karthik Subramanian', role: 'Documentary producer', stars: 5, body: 'Her Tamil narration has a weight to it that our film really needed. Unhurried. Observational. The takes came in remarkably clean.' },
   { name: 'Anitha S.', role: 'Audiobook editor', stars: 5, body: 'Twelve hours of fiction, distinct characters throughout, and not a single misread of a long Tamil compound word. We will work with her again.' },
   { name: 'Rajesh Kumar', role: 'Brand manager, wellness', stars: 4, body: 'Warm, grandmotherly, trustworthy — exactly what our 30-second spot asked for. She took direction well and gave us three useable variants.' },
-  { name: 'Meenakshi Iyer', role: 'Mother of two', stars: 5, body: 'My children ask for "the Alarmel paatti story" every night now. I cannot think of higher praise than that.' },
+  { name: 'Meenakshi Iyer', role: 'Mother of two', stars: 5, body: 'My children ask for "the Alarmel paatti story" every night. That is the review.' },
 ];
 
 function Stars({ n, size = 14 }) {
@@ -491,9 +382,9 @@ function Testimonials() {
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 50, flexWrap: 'wrap', gap: 20 }}>
           <div>
-            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ From those she's worked with</div>
+            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ From people I've worked with</div>
             <h2 id="testimonials-heading" className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
-              Kind words, <em>honestly given.</em>
+              Notes from <em>the booth.</em>
             </h2>
           </div>
           <button
@@ -603,7 +494,7 @@ function Contact() {
           fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 0.95, margin: 0,
           fontWeight: 500, letterSpacing: '-0.02em', color: 'var(--paper)',
         }}>
-          Tell me<br/>about your <em style={{ color: '#E8B987' }}>project.</em>
+          Tell me<br/>what you're <em style={{ color: '#E8B987' }}>making.</em>
         </h2>
         <p style={{ color: 'var(--paper-3)', fontSize: 18, lineHeight: 1.65, marginTop: 30, fontStyle: 'italic', opacity: 0.9 }}>
           For Tamil audiobooks, children's audio, brand films, documentary narration and commercial reads. I'll reply within two working days.
@@ -686,7 +577,7 @@ function FAQ() {
           </h2>
         </div>
         <div style={{ maxWidth: 360, color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6, fontStyle: 'italic' }}>
-          A few things people ask before commissioning a read.
+          The usual questions, answered.
         </div>
       </div>
       <div style={{ borderTop: '1px solid var(--rule)' }}>
@@ -727,4 +618,4 @@ function Footer() {
   );
 }
 
-export { Nav, Hero, Marquee, About, VoiceSamples, Range, Platforms, Testimonials, FAQ, Contact, Footer };
+export { Nav, Hero, Marquee, About, VoiceSamples, Testimonials, FAQ, Contact, Footer };

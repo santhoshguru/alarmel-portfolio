@@ -3,7 +3,7 @@
 // ============================================================
 
 import React from 'react';
-import { Nav, Hero, Marquee, About, VoiceSamples, Range, Platforms, Testimonials, FAQ, Contact, Footer } from './Sections.jsx';
+import { Nav, Hero, Marquee, About, VoiceSamples, Testimonials, FAQ, Contact, Footer } from './Sections.jsx';
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "playerStyle": "waveform",
@@ -172,8 +172,6 @@ function App() {
         <Marquee />
         <About />
         <VoiceSamples playerStyle={playerStyle} />
-        <Range />
-        <Platforms />
         <Testimonials />
         <FAQ />
         <Contact />
