@@ -19,19 +19,19 @@ function Nav() {
     { href: '#contact', label: 'Contact' },
   ];
   return (
-    <nav style={{
+    <nav className="nav-wrap" style={{
       position: 'sticky', top: 0, zIndex: 50,
       background: 'var(--paper)',
       backdropFilter: 'blur(8px)',
       borderBottom: '1px solid var(--rule)',
-      padding: '14px 40px',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      flexWrap: 'wrap', gap: 10,
     }}>
       <a href="#top" style={{ textDecoration: 'none', color: 'var(--ink)', display: 'flex', alignItems: 'baseline', gap: 10 }}>
-        <span className="display" style={{ fontSize: 22, fontStyle: 'italic', fontWeight: 500 }}>Alarmel Mangai</span>
+        <span className="display" style={{ fontSize: 20, fontStyle: 'italic', fontWeight: 500 }}>Alarmel Mangai</span>
         <span className="mono" style={{ color: 'var(--ink-3)' }}>Voice Artist · Tamil</span>
       </a>
-      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+      <div className="nav-links" style={{ display: 'flex', gap: 22, flexWrap: 'wrap' }}>
         {links.map(l => (
           <a key={l.href} href={l.href} className="mono" style={{ color: 'var(--ink-2)', textDecoration: 'none' }}>{l.label}</a>
         ))}
@@ -45,16 +45,18 @@ function Nav() {
 // ------------------------------------------------------------
 function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-heading" style={{
-      padding: '60px 40px 80px',
-      maxWidth: 1280, margin: '0 auto',
-      display: 'grid',
-      gridTemplateColumns: '1.1fr 1fr',
-      gap: 60, alignItems: 'center',
-    }}>
+    <section
+      id="top"
+      aria-labelledby="hero-heading"
+      className="hero-grid"
+      style={{
+        padding: '36px var(--section-px) 52px',
+        maxWidth: 1280, margin: '0 auto',
+      }}
+    >
       <div>
         <div className="anim-up-sm">
-          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 26 }}>
+          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 18 }}>
             Chennai · தமிழ் Voice Artist
           </div>
         </div>
@@ -63,8 +65,8 @@ function Hero() {
           id="hero-heading"
           className="display anim-up d1"
           style={{
-            fontSize: 'clamp(56px, 8.5vw, 124px)',
-            lineHeight: 0.92,
+            fontSize: 'clamp(44px, 7vw, 100px)',
+            lineHeight: 0.95,
             margin: 0, fontWeight: 500,
             letterSpacing: '-0.025em',
           }}
@@ -77,8 +79,8 @@ function Hero() {
         <p
           className="anim-fade d4"
           style={{
-            marginTop: 36, fontSize: 21, lineHeight: 1.55,
-            color: 'var(--ink-2)', maxWidth: 540,
+            marginTop: 22, fontSize: 18, lineHeight: 1.5,
+            color: 'var(--ink-2)', maxWidth: 520,
             fontStyle: 'italic',
           }}
         >
@@ -87,25 +89,25 @@ function Hero() {
 
         <div
           className="anim-up-sm d5"
-          style={{ marginTop: 40, display: 'flex', gap: 18, alignItems: 'center', flexWrap: 'wrap' }}
+          style={{ marginTop: 26, display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}
         >
           <a href="#voices" style={{
-            display: 'inline-flex', alignItems: 'center', gap: 12,
-            padding: '14px 22px', background: 'var(--ink)', color: 'var(--paper)',
+            display: 'inline-flex', alignItems: 'center', gap: 10,
+            padding: '12px 20px', background: 'var(--ink)', color: 'var(--paper)',
             textDecoration: 'none', fontFamily: 'JetBrains Mono', fontSize: 11,
             letterSpacing: '0.18em', textTransform: 'uppercase',
           }}>
-            <span style={{ fontSize: 14 }}>▶</span> Listen to the portfolio
+            <span style={{ fontSize: 13 }}>▶</span> Listen to the portfolio
           </a>
           <a href="#contact" className="mono" style={{ color: 'var(--ink-2)', textDecoration: 'underline', textUnderlineOffset: 4 }}>
-            Commission a read →
+            Get in touch →
           </a>
         </div>
       </div>
 
       <div className="anim-scale" style={{ position: 'relative' }}>
         <div style={{
-          position: 'absolute', inset: -14,
+          position: 'absolute', inset: -10,
           border: '1px solid var(--rule)',
           borderRadius: 0, pointerEvents: 'none',
         }} />
@@ -117,11 +119,12 @@ function Hero() {
           height="650"
           style={{
             width: '100%', height: 'auto', display: 'block',
+            maxHeight: '62vh', objectFit: 'cover',
             filter: 'contrast(1.02) saturate(1.04)',
           }}
         />
         <div style={{
-          marginTop: 14, fontStyle: 'italic', fontSize: 14,
+          marginTop: 10, fontStyle: 'italic', fontSize: 13,
           color: 'var(--ink-3)', textAlign: 'right',
         }}>
           Alarmel, photographed at home — Chennai, March 2026.
@@ -143,12 +146,12 @@ function Marquee() {
   return (
     <section style={{
       borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)',
-      padding: '22px 0', overflow: 'hidden', background: 'var(--paper-2)',
+      padding: '16px 0', overflow: 'hidden', background: 'var(--paper-2)',
     }}>
-      <div className="marquee-track" style={{ display: 'flex', gap: 36, whiteSpace: 'nowrap', width: 'fit-content' }}>
+      <div className="marquee-track" style={{ display: 'flex', gap: 32, whiteSpace: 'nowrap', width: 'fit-content' }}>
         {[...items, ...items, ...items, ...items].map((t, i) => (
           <span key={i} className="display" style={{
-            fontSize: 32, fontStyle: t === '·' ? 'normal' : 'italic',
+            fontSize: 26, fontStyle: t === '·' ? 'normal' : 'italic',
             color: t === '·' ? 'var(--accent)' : 'var(--ink-2)',
             fontWeight: 400,
           }}>{t}</span>
@@ -163,46 +166,43 @@ function Marquee() {
 // ------------------------------------------------------------
 function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" style={{
-      padding: '120px 40px',
-      maxWidth: 1180, margin: '0 auto',
-    }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 60, marginBottom: 60 }}>
+    <section id="about" aria-labelledby="about-heading" className="section-wrap">
+      <div className="two-col-about" style={{ marginBottom: 36 }}>
         <div>
-          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ About</div>
+          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 10 }}>§ About</div>
           <h2 id="about-heading" className="display" style={{
-            fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500,
+            fontSize: 'clamp(32px, 4.2vw, 56px)', lineHeight: 1, margin: 0, fontWeight: 500,
             letterSpacing: '-0.02em',
           }}>
             A craft,<br/><em>long in the ear.</em>
           </h2>
         </div>
-        <div style={{ paddingTop: 12 }}>
-          <p style={{ fontSize: 19, lineHeight: 1.7, color: 'var(--ink-2)', margin: 0 }}>
+        <div style={{ paddingTop: 6 }}>
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', margin: 0 }}>
             <span className="display" style={{
-              float: 'left', fontSize: 92, lineHeight: 0.86,
-              padding: '6px 12px 0 0', color: 'var(--accent)', fontWeight: 500,
+              float: 'left', fontSize: 72, lineHeight: 0.86,
+              padding: '4px 10px 0 0', color: 'var(--accent)', fontWeight: 500,
             }}>I</span>
             loved the sound of a story read aloud long before I recorded one — the pause before a surprise, the lilt of a well-placed word, the way a child leans in when a voice softens. Voice acting is the work I came to follow that love into, studied formally so affection could be met by craft.
           </p>
-          <p style={{ fontSize: 19, lineHeight: 1.7, color: 'var(--ink-2)', marginTop: 22 }}>
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', marginTop: 14 }}>
             My days now begin in a small quiet room with a microphone. I record in Tamil — children's stories mostly, but also audiobooks, documentary narration, commercials, character pieces and devotional recitation. I work slowly, listen closely, and never submit a take I wouldn't listen to twice.
           </p>
-          <p style={{ fontSize: 19, lineHeight: 1.7, color: 'var(--ink-2)', marginTop: 22, fontStyle: 'italic' }}>
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', marginTop: 14, fontStyle: 'italic' }}>
             (Before this life in sound, I spent a long, steady career in Indian banking. The patience it asked of me turned out to be the same the booth asks now.)
           </p>
         </div>
       </div>
 
       {/* personal — interests */}
-      <div style={{ marginTop: 80, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60 }}>
+      <div className="two-col-even" style={{ marginTop: 44 }}>
         <div>
-          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 12 }}>Aside from the booth</div>
-          <h3 className="display" style={{ fontSize: 36, lineHeight: 1.05, margin: 0, fontWeight: 500 }}>
+          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 10 }}>Aside from the booth</div>
+          <h3 className="display" style={{ fontSize: 28, lineHeight: 1.1, margin: 0, fontWeight: 500 }}>
             A life arranged around <em>literature, devotion, and the body in motion.</em>
           </h3>
         </div>
-        <div style={{ color: 'var(--ink-2)', fontSize: 17, lineHeight: 1.7 }}>
+        <div style={{ color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6 }}>
           My readings are shaped by the things I love outside the studio: Tamil literature read slowly; bhajans sung in the household at dawn; yoga, aerobics and strength work that keep the breath in order; weekend cooking; and grandchildren whose afternoons I keep for myself.
         </div>
       </div>
@@ -227,26 +227,25 @@ function VoiceSamples({ playerStyle }) {
   const track = filtered[activeIdx] || filtered[0];
 
   return (
-    <section id="voices" aria-labelledby="voices-heading" style={{
-      padding: '120px 40px',
+    <section id="voices" aria-labelledby="voices-heading" className="section-wrap--full" style={{
       background: 'var(--paper-2)',
       borderTop: '1px solid var(--rule)',
       borderBottom: '1px solid var(--rule)',
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 50, flexWrap: 'wrap', gap: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 28, flexWrap: 'wrap', gap: 14 }}>
           <div>
-            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 12 }}>§ Voice Samples · 15 Pieces</div>
-            <h2 id="voices-heading" className="display" style={{ fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
+            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 8 }}>§ Voice Samples · 15 Pieces</div>
+            <h2 id="voices-heading" className="display" style={{ fontSize: 'clamp(32px, 4.6vw, 60px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
               The <em>portfolio.</em>
             </h2>
           </div>
-          <div style={{ maxWidth: 380, color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6, fontStyle: 'italic' }}>
+          <div style={{ maxWidth: 340, color: 'var(--ink-2)', fontSize: 15, lineHeight: 1.5, fontStyle: 'italic' }}>
             Press play on any piece. The waveform is live — drag to scrub.
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 40 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 24 }}>
           {CATEGORIES.map(cat => {
             const active = cat === activeCat;
             return (
@@ -255,7 +254,7 @@ function VoiceSamples({ playerStyle }) {
                 onClick={() => setActiveCat(cat)}
                 className="mono"
                 style={{
-                  padding: '10px 16px',
+                  padding: '8px 14px',
                   border: '1px solid ' + (active ? 'var(--ink)' : 'var(--rule)'),
                   background: active ? 'var(--ink)' : 'transparent',
                   color: active ? 'var(--paper)' : 'var(--ink-2)',
@@ -269,12 +268,12 @@ function VoiceSamples({ playerStyle }) {
           })}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 50 }}>
+        <div className="voices-grid">
           <div>
-            <div className="mono" style={{ color: 'var(--ink-3)', marginBottom: 14, paddingBottom: 10, borderBottom: '1px solid var(--rule)' }}>
+            <div className="mono" style={{ color: 'var(--ink-3)', marginBottom: 10, paddingBottom: 8, borderBottom: '1px solid var(--rule)' }}>
               Index — {filtered.length} pieces
             </div>
-            <div style={{ maxHeight: 600, overflowY: 'auto' }}>
+            <div style={{ maxHeight: 460, overflowY: 'auto' }}>
               {filtered.map((t, i) => {
                 const active = i === activeIdx;
                 return (
@@ -283,18 +282,18 @@ function VoiceSamples({ playerStyle }) {
                     onClick={() => setActiveIdx(i)}
                     style={{
                       width: '100%', textAlign: 'left',
-                      padding: '14px 12px',
+                      padding: '10px 10px',
                       background: active ? 'var(--paper-3)' : 'transparent',
                       border: 'none', borderBottom: '1px solid var(--rule)',
                       cursor: 'pointer', fontFamily: 'inherit',
-                      display: 'flex', flexDirection: 'column', gap: 4,
+                      display: 'flex', flexDirection: 'column', gap: 3,
                       borderLeft: active ? '3px solid var(--accent)' : '3px solid transparent',
                       transition: 'background 0.15s',
                     }}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 }}>
                       <span className="display" style={{
-                        fontSize: 16, lineHeight: 1.2,
+                        fontSize: 15, lineHeight: 1.2,
                         fontWeight: active ? 500 : 400,
                         color: active ? 'var(--ink)' : 'var(--ink-2)',
                       }}>
@@ -318,7 +317,7 @@ function VoiceSamples({ playerStyle }) {
             className="anim-up-sm"
             style={{
               background: 'var(--paper)',
-              padding: '40px 44px',
+              padding: '28px 30px',
               border: '1px solid var(--rule)',
             }}
           >
@@ -333,14 +332,14 @@ function VoiceSamples({ playerStyle }) {
 // ------------------------------------------------------------
 // TESTIMONIALS — customer reviews, with an "add your own" form
 // ------------------------------------------------------------
-const SEED_TESTIMONIALS = [
+const TESTIMONIALS = [
   { name: 'Priya Ravindran', role: 'Children\'s publisher, Chennai', stars: 5, body: 'We sent her a manuscript on Thursday and had a full recording by Monday. She treats each story like it belongs to her — the care is audible.' },
   { name: 'Karthik Subramanian', role: 'Documentary producer', stars: 5, body: 'Her Tamil narration has a weight to it that our film really needed. Unhurried. Observational. The takes came in remarkably clean.' },
   { name: 'Rajesh Kumar', role: 'Brand manager, wellness', stars: 4, body: 'Warm, grandmotherly, trustworthy — exactly what our 30-second spot asked for. She took direction well and gave us three useable variants.' },
   { name: 'Meenakshi Iyer', role: 'Mother of two', stars: 5, body: 'My children ask for "the Alarmel paatti story" every night. That is the review.' },
 ];
 
-function Stars({ n, size = 14 }) {
+function Stars({ n, size = 13 }) {
   return (
     <div style={{ display: 'inline-flex', gap: 2 }}>
       {[1,2,3,4,5].map(i => (
@@ -355,118 +354,31 @@ function Stars({ n, size = 14 }) {
 }
 
 function Testimonials() {
-  const [reviews, setReviews] = React.useState(SEED_TESTIMONIALS);
-  const [form, setForm] = React.useState({ name: '', role: '', body: '', stars: 5 });
-  const [showForm, setShowForm] = React.useState(false);
-  const [submitted, setSubmitted] = React.useState(false);
-  const handle = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }));
-  const submit = (e) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.body.trim()) return;
-    setReviews(r => [{ ...form }, ...r]);
-    setSubmitted(true);
-    setForm({ name: '', role: '', body: '', stars: 5 });
-    setTimeout(() => { setShowForm(false); setSubmitted(false); }, 2000);
-  };
-
   return (
-    <section id="testimonials" aria-labelledby="testimonials-heading" style={{ padding: '80px 40px' }}>
-      <div style={{ maxWidth: 1180, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, flexWrap: 'wrap', gap: 20 }}>
-          <div>
-            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ From people I've worked with</div>
-            <h2 id="testimonials-heading" className="display" style={{ fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
-              Notes from <em>the booth.</em>
-            </h2>
-          </div>
-          <button
-            onClick={() => setShowForm(s => !s)}
-            className="mono"
-            style={{
-              padding: '12px 20px',
-              background: showForm ? 'transparent' : 'var(--ink)',
-              color: showForm ? 'var(--ink)' : 'var(--paper)',
-              border: '1px solid var(--ink)', cursor: 'pointer',
-            }}
-          >
-            {showForm ? '× Close' : '+ Leave a review'}
-          </button>
-        </div>
+    <section id="testimonials" aria-labelledby="testimonials-heading" className="section-wrap">
+      <div style={{ marginBottom: 24 }}>
+        <div className="mono" style={{ color: 'var(--accent)', marginBottom: 10 }}>§ From people I've worked with</div>
+        <h2 id="testimonials-heading" className="display" style={{ fontSize: 'clamp(32px, 4.2vw, 56px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
+          Notes from <em>the booth.</em>
+        </h2>
+      </div>
 
-        {/* review form */}
-        {showForm && (
-          <div className="anim-up-sm" style={{
-            background: 'var(--paper-2)', padding: 30,
-            border: '1px solid var(--rule)', marginBottom: 40,
+      <div className="testimonials-cols">
+        {TESTIMONIALS.map((r, i) => (
+          <div key={i} style={{
+            breakInside: 'avoid', marginBottom: 16,
+            padding: '18px 22px',
+            background: 'var(--paper)',
+            border: '1px solid var(--rule)',
           }}>
-            {submitted ? (
-              <div className="anim-up-sm" style={{ padding: 20, textAlign: 'center' }}>
-                <div className="mono" style={{ color: 'var(--accent)', marginBottom: 8 }}>✓ Thank you</div>
-                <div className="display" style={{ fontSize: 24, fontStyle: 'italic' }}>Your review has been added.</div>
-              </div>
-            ) : (
-              <form onSubmit={submit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-                <label>
-                  <span className="mono" style={{ color: 'var(--ink-3)', display: 'block', marginBottom: 6 }}>Your name</span>
-                  <input value={form.name} onChange={handle('name')} required
-                    style={{ width: '100%', padding: '10px 0', background: 'transparent', border: 'none', borderBottom: '1px solid var(--ink-3)', fontFamily: 'Spectral, serif', fontSize: 17, outline: 'none' }} />
-                </label>
-                <label>
-                  <span className="mono" style={{ color: 'var(--ink-3)', display: 'block', marginBottom: 6 }}>Role / context (optional)</span>
-                  <input value={form.role} onChange={handle('role')}
-                    style={{ width: '100%', padding: '10px 0', background: 'transparent', border: 'none', borderBottom: '1px solid var(--ink-3)', fontFamily: 'Spectral, serif', fontSize: 17, outline: 'none' }} />
-                </label>
-                <div style={{ gridColumn: 'span 2', display: 'flex', alignItems: 'center', gap: 16 }}>
-                  <span className="mono" style={{ color: 'var(--ink-3)' }}>Rating</span>
-                  {[1,2,3,4,5].map(i => (
-                    <button key={i} type="button" onClick={() => setForm(f => ({ ...f, stars: i }))}
-                      style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 2 }}>
-                      <svg width="22" height="22" viewBox="0 0 20 20">
-                        <path d="M10 1.5l2.472 5.5 5.528.8-4 3.9.944 5.5L10 14.5l-4.944 2.7L6 11.7 2 7.8l5.528-.8z"
-                          fill={i <= form.stars ? 'var(--accent)' : 'transparent'}
-                          stroke="var(--accent)" strokeWidth="1.2"/>
-                      </svg>
-                    </button>
-                  ))}
-                </div>
-                <label style={{ gridColumn: 'span 2' }}>
-                  <span className="mono" style={{ color: 'var(--ink-3)', display: 'block', marginBottom: 6 }}>Your review</span>
-                  <textarea value={form.body} onChange={handle('body')} required rows={4}
-                    placeholder="Tell others what it was like working with her…"
-                    style={{ width: '100%', padding: '10px 0', background: 'transparent', border: 'none', borderBottom: '1px solid var(--ink-3)', fontFamily: 'Spectral, serif', fontSize: 17, outline: 'none', resize: 'vertical' }} />
-                </label>
-                <button type="submit" className="submit-btn" style={{
-                  gridColumn: 'span 2', justifySelf: 'start',
-                  padding: '14px 28px', background: 'var(--accent)', color: 'var(--paper)',
-                  border: 'none', cursor: 'pointer',
-                  fontFamily: 'JetBrains Mono', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase',
-                  transition: 'transform 0.15s',
-                }}>Publish review →</button>
-              </form>
-            )}
+            <Stars n={r.stars} />
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: 'var(--ink)', fontStyle: 'italic', margin: '10px 0 14px 0' }}>
+              “{r.body}”
+            </p>
+            <div className="display" style={{ fontSize: 16, fontWeight: 500 }}>{r.name}</div>
+            {r.role && <div className="mono" style={{ color: 'var(--ink-3)', marginTop: 3 }}>{r.role}</div>}
           </div>
-        )}
-
-        {/* review grid — magazine columns */}
-        <div style={{
-          columnCount: 2, columnGap: 40,
-        }}>
-          {reviews.map((r, i) => (
-            <div key={i} style={{
-              breakInside: 'avoid', marginBottom: 20,
-              padding: '24px 28px',
-              background: 'var(--paper)',
-              border: '1px solid var(--rule)',
-            }}>
-              <Stars n={r.stars} />
-              <p style={{ fontSize: 18, lineHeight: 1.55, color: 'var(--ink)', fontStyle: 'italic', margin: '14px 0 20px 0' }}>
-                “{r.body}”
-              </p>
-              <div className="display" style={{ fontSize: 18, fontWeight: 500 }}>{r.name}</div>
-              {r.role && <div className="mono" style={{ color: 'var(--ink-3)', marginTop: 4 }}>{r.role}</div>}
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </section>
   );
@@ -487,23 +399,23 @@ function Contact() {
   const whatsappHref = 'https://wa.me/' + phoneIntl + '?text=' +
     encodeURIComponent("Hi Alarmel, I'd like to reach out about voice-over work.");
   return (
-    <section id="contact" aria-labelledby="contact-heading" style={{
-      padding: '120px 40px', background: 'var(--ink)', color: 'var(--paper)',
+    <section id="contact" aria-labelledby="contact-heading" className="section-wrap--full" style={{
+      background: 'var(--ink)', color: 'var(--paper)',
     }}>
-      <div style={{ maxWidth: 780, margin: '0 auto' }}>
-        <div className="mono" style={{ color: '#E8B987', marginBottom: 14 }}>§ Reach out</div>
+      <div style={{ maxWidth: 760, margin: '0 auto' }}>
+        <div className="mono" style={{ color: '#E8B987', marginBottom: 10 }}>§ Reach out</div>
         <h2 id="contact-heading" className="display" style={{
-          fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 0.95, margin: 0,
+          fontSize: 'clamp(32px, 4.6vw, 60px)', lineHeight: 0.95, margin: 0,
           fontWeight: 500, letterSpacing: '-0.02em', color: 'var(--paper)',
         }}>
           Send a <em style={{ color: '#E8B987' }}>brief.</em>
         </h2>
-        <p style={{ color: 'var(--paper-3)', fontSize: 18, lineHeight: 1.65, marginTop: 30, fontStyle: 'italic', opacity: 0.9 }}>
+        <p style={{ color: 'var(--paper-3)', fontSize: 16, lineHeight: 1.55, marginTop: 18, fontStyle: 'italic', opacity: 0.9 }}>
           For Tamil audiobooks, children's audio, brand films, documentary narration and commercial reads. I'll reply within two working days.
         </p>
 
-        <div style={{ marginTop: 50, borderTop: '1px solid rgba(245,239,227,0.2)', paddingTop: 30 }}>
-          <div className="mono" style={{ color: 'var(--paper-3)', marginBottom: 18, opacity: 0.7 }}>Direct</div>
+        <div style={{ marginTop: 28, borderTop: '1px solid rgba(245,239,227,0.2)', paddingTop: 18 }}>
+          <div className="mono" style={{ color: 'var(--paper-3)', marginBottom: 10, opacity: 0.7 }}>Direct</div>
           {[
             ['Email', email, 'mailto:' + email],
             ['WhatsApp', phoneDisplay, whatsappHref],
@@ -511,7 +423,7 @@ function Contact() {
           ].map(([k, v, href]) => (
             <div key={k} style={{
               display: 'flex', justifyContent: 'space-between',
-              padding: '14px 0', borderBottom: '1px solid rgba(245,239,227,0.15)',
+              padding: '10px 0', borderBottom: '1px solid rgba(245,239,227,0.15)',
             }}>
               <span className="mono" style={{ color: 'var(--paper-3)', opacity: 0.7 }}>{k}</span>
               {href ? (
@@ -526,13 +438,13 @@ function Contact() {
           ))}
         </div>
 
-        <div style={{ marginTop: 40, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+        <div style={{ marginTop: 22, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
           {[
             { label: 'Instagram', href: 'https://www.instagram.com/alarmel_voiceartist/' },
             { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alamelu-mangai-voice-artist/' },
           ].map(s => (
             <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="mono" style={{
-              padding: '10px 14px', border: '1px solid rgba(245,239,227,0.3)',
+              padding: '8px 12px', border: '1px solid rgba(245,239,227,0.3)',
               color: 'var(--paper-3)', textDecoration: 'none',
             }}>{s.label} ↗</a>
           ))}
@@ -574,19 +486,17 @@ function FAQ() {
   ];
 
   return (
-    <section id="faq" aria-labelledby="faq-heading" style={{
-      padding: '120px 40px', maxWidth: 1180, margin: '0 auto',
-    }}>
-      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 50, flexWrap: 'wrap', gap: 20 }}>
+    <section id="faq" aria-labelledby="faq-heading" className="section-wrap">
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 24, flexWrap: 'wrap', gap: 14 }}>
         <div>
-          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 14 }}>§ Frequently asked</div>
+          <div className="mono" style={{ color: 'var(--accent)', marginBottom: 10 }}>§ Frequently asked</div>
           <h2 id="faq-heading" className="display" style={{
-            fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em',
+            fontSize: 'clamp(32px, 4.2vw, 56px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em',
           }}>
             Common <em>questions.</em>
           </h2>
         </div>
-        <div style={{ maxWidth: 360, color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6, fontStyle: 'italic' }}>
+        <div style={{ maxWidth: 320, color: 'var(--ink-2)', fontSize: 15, lineHeight: 1.5, fontStyle: 'italic' }}>
           The usual questions, answered.
         </div>
       </div>
@@ -594,17 +504,17 @@ function FAQ() {
         {faqs.map((f, i) => (
           <details key={i} style={{
             borderBottom: '1px solid var(--rule)',
-            padding: '22px 4px',
+            padding: '14px 4px',
           }}>
             <summary className="display" style={{
-              fontSize: 22, fontWeight: 500, cursor: 'pointer',
+              fontSize: 19, fontWeight: 500, cursor: 'pointer',
               listStyle: 'none', display: 'flex', justifyContent: 'space-between',
-              alignItems: 'baseline', gap: 20,
+              alignItems: 'baseline', gap: 16,
             }}>
               <span>{f.q}</span>
-              <span className="mono" style={{ color: 'var(--ink-3)', fontSize: 14, flexShrink: 0 }}>+</span>
+              <span className="mono" style={{ color: 'var(--ink-3)', fontSize: 13, flexShrink: 0 }}>+</span>
             </summary>
-            <p style={{ marginTop: 14, fontSize: 18, lineHeight: 1.65, color: 'var(--ink-2)', maxWidth: 820 }}>
+            <p style={{ marginTop: 10, fontSize: 16, lineHeight: 1.55, color: 'var(--ink-2)', maxWidth: 780 }}>
               {f.a}
             </p>
           </details>
@@ -619,9 +529,9 @@ function FAQ() {
 // ------------------------------------------------------------
 function Footer() {
   return (
-    <footer style={{ background: 'var(--ink)', color: 'var(--paper-3)', padding: '30px 40px', borderTop: '1px solid rgba(245,239,227,0.15)' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 20 }}>
-        <div className="display" style={{ fontSize: 24, fontStyle: 'italic', color: 'var(--paper)' }}>Alarmel Mangai</div>
+    <footer style={{ background: 'var(--ink)', color: 'var(--paper-3)', padding: '20px var(--section-px)', borderTop: '1px solid rgba(245,239,227,0.15)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 16 }}>
+        <div className="display" style={{ fontSize: 20, fontStyle: 'italic', color: 'var(--paper)' }}>Alarmel Mangai</div>
         <div className="mono" style={{ fontSize: 10, opacity: 0.7 }}>© 2026 · Tamil voice artist · Chennai · India</div>
       </div>
     </footer>
