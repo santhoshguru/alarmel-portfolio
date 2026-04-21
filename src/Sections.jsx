@@ -28,7 +28,7 @@ function Nav() {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     }}>
       <a href="#top" style={{ textDecoration: 'none', color: 'var(--ink)', display: 'flex', alignItems: 'baseline', gap: 10 }}>
-        <span className="display" style={{ fontSize: 22, fontStyle: 'italic', fontWeight: 500 }}>Alarmel</span>
+        <span className="display" style={{ fontSize: 22, fontStyle: 'italic', fontWeight: 500 }}>Alarmel Mangai</span>
         <span className="mono" style={{ color: 'var(--ink-3)' }}>Voice Artist · Tamil</span>
       </a>
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
@@ -55,7 +55,7 @@ function Hero() {
       <div>
         <div className="anim-up-sm">
           <div className="mono" style={{ color: 'var(--accent)', marginBottom: 26 }}>
-            ── Issue Nº 01 · Chennai · தமிழ் Voice Artist
+            Chennai · தமிழ் Voice Artist
           </div>
         </div>
 
@@ -109,13 +109,6 @@ function Hero() {
           border: '1px solid var(--rule)',
           borderRadius: 0, pointerEvents: 'none',
         }} />
-        <div style={{
-          position: 'absolute', top: -28, left: -28,
-          fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--ink-3)',
-          letterSpacing: '0.2em',
-        }}>
-          PLATE I
-        </div>
         <img
           src="assets/alarmel.jpg"
           alt="Alarmel, Tamil voice artist and audiobook narrator, photographed at home in Chennai"
@@ -494,7 +487,7 @@ function Contact() {
           fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 0.95, margin: 0,
           fontWeight: 500, letterSpacing: '-0.02em', color: 'var(--paper)',
         }}>
-          Tell me<br/>what you're <em style={{ color: '#E8B987' }}>making.</em>
+          Send a <em style={{ color: '#E8B987' }}>brief.</em>
         </h2>
         <p style={{ color: 'var(--paper-3)', fontSize: 18, lineHeight: 1.65, marginTop: 30, fontStyle: 'italic', opacity: 0.9 }}>
           For Tamil audiobooks, children's audio, brand films, documentary narration and commercial reads. I'll reply within two working days.
@@ -504,23 +497,29 @@ function Contact() {
           <div className="mono" style={{ color: 'var(--paper-3)', marginBottom: 18, opacity: 0.7 }}>Direct</div>
           {[
             ['Email', 'alarmel@example.com'],
-            ['Phone', '+91 ·· ····· ····'],
-            ['WhatsApp', '+91 ·· ····· ····'],
+            ['WhatsApp', '+91 98408 63730', 'https://wa.me/919840863730?text=Hi%20Alarmel%2C%20I%27d%20like%20to%20reach%20out%20about%20voice-over%20work.'],
             ['Studio', 'Chennai · Tamil Nadu · India'],
             ['Hours', 'Mon–Sat · 9am – 5pm IST'],
-          ].map(([k, v]) => (
+          ].map(([k, v, href]) => (
             <div key={k} style={{
               display: 'flex', justifyContent: 'space-between',
               padding: '14px 0', borderBottom: '1px solid rgba(245,239,227,0.15)',
             }}>
               <span className="mono" style={{ color: 'var(--paper-3)', opacity: 0.7 }}>{k}</span>
-              <span style={{ color: 'var(--paper)', fontStyle: 'italic' }}>{v}</span>
+              {href ? (
+                <a href={href} target="_blank" rel="noopener noreferrer" style={{
+                  color: 'var(--paper)', fontStyle: 'italic',
+                  textDecoration: 'underline', textUnderlineOffset: 4,
+                }}>{v} ↗</a>
+              ) : (
+                <span style={{ color: 'var(--paper)', fontStyle: 'italic' }}>{v}</span>
+              )}
             </div>
           ))}
         </div>
 
         <div style={{ marginTop: 40, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-          {['Instagram', 'LinkedIn', 'YouTube', 'Spotify'].map(s => (
+          {['Instagram', 'LinkedIn'].map(s => (
             <a key={s} href="#" className="mono" style={{
               padding: '10px 14px', border: '1px solid rgba(245,239,227,0.3)',
               color: 'var(--paper-3)', textDecoration: 'none',
