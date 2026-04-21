@@ -610,124 +610,48 @@ function Testimonials() {
 // CONTACT
 // ------------------------------------------------------------
 function Contact() {
-  const [submitted, setSubmitted] = React.useState(false);
-  const [form, setForm] = React.useState({ name: '', email: '', project: '', message: '' });
-  const handle = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }));
-  const submit = (e) => { e.preventDefault(); setSubmitted(true); };
-
   return (
     <section id="contact" style={{
       padding: '120px 40px', background: 'var(--ink)', color: 'var(--paper)',
     }}>
-      <div style={{ maxWidth: 1180, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80 }}>
-          <div>
-            <div className="mono" style={{ color: '#E8B987', marginBottom: 14 }}>§ Reach out</div>
-            <h2 className="display" style={{
-              fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 0.95, margin: 0,
-              fontWeight: 500, letterSpacing: '-0.02em', color: 'var(--paper)',
+      <div style={{ maxWidth: 780, margin: '0 auto' }}>
+        <div className="mono" style={{ color: '#E8B987', marginBottom: 14 }}>§ Reach out</div>
+        <h2 className="display" style={{
+          fontSize: 'clamp(44px, 6vw, 80px)', lineHeight: 0.95, margin: 0,
+          fontWeight: 500, letterSpacing: '-0.02em', color: 'var(--paper)',
+        }}>
+          Tell me<br/>about your <em style={{ color: '#E8B987' }}>project.</em>
+        </h2>
+        <p style={{ color: 'var(--paper-3)', fontSize: 18, lineHeight: 1.65, marginTop: 30, fontStyle: 'italic', opacity: 0.9 }}>
+          For Tamil audiobooks, children's audio, brand films, documentary narration and commercial reads. I'll reply within two working days.
+        </p>
+
+        <div style={{ marginTop: 50, borderTop: '1px solid rgba(245,239,227,0.2)', paddingTop: 30 }}>
+          <div className="mono" style={{ color: 'var(--paper-3)', marginBottom: 18, opacity: 0.7 }}>Direct</div>
+          {[
+            ['Email', 'alarmel@example.com'],
+            ['Phone', '+91 ·· ····· ····'],
+            ['WhatsApp', '+91 ·· ····· ····'],
+            ['Studio', 'Chennai · Tamil Nadu · India'],
+            ['Hours', 'Mon–Sat · 9am – 5pm IST'],
+          ].map(([k, v]) => (
+            <div key={k} style={{
+              display: 'flex', justifyContent: 'space-between',
+              padding: '14px 0', borderBottom: '1px solid rgba(245,239,227,0.15)',
             }}>
-              Tell me<br/>about your <em style={{ color: '#E8B987' }}>project.</em>
-            </h2>
-            <p style={{ color: 'var(--paper-3)', fontSize: 18, lineHeight: 1.65, marginTop: 30, fontStyle: 'italic', opacity: 0.9 }}>
-              For Tamil audiobooks, children's audio, brand films, documentary narration and commercial reads. I'll reply within two working days.
-            </p>
-
-            <div style={{ marginTop: 50, borderTop: '1px solid rgba(245,239,227,0.2)', paddingTop: 30 }}>
-              <div className="mono" style={{ color: 'var(--paper-3)', marginBottom: 18, opacity: 0.7 }}>Direct</div>
-              {[
-                ['Email', 'alarmel@example.com'],
-                ['Phone', '+91 ·· ····· ····'],
-                ['WhatsApp', '+91 ·· ····· ····'],
-                ['Studio', 'Chennai · Tamil Nadu · India'],
-                ['Hours', 'Mon–Sat · 9am – 5pm IST'],
-              ].map(([k, v]) => (
-                <div key={k} style={{
-                  display: 'flex', justifyContent: 'space-between',
-                  padding: '14px 0', borderBottom: '1px solid rgba(245,239,227,0.15)',
-                }}>
-                  <span className="mono" style={{ color: 'var(--paper-3)', opacity: 0.7 }}>{k}</span>
-                  <span style={{ color: 'var(--paper)', fontStyle: 'italic' }}>{v}</span>
-                </div>
-              ))}
+              <span className="mono" style={{ color: 'var(--paper-3)', opacity: 0.7 }}>{k}</span>
+              <span style={{ color: 'var(--paper)', fontStyle: 'italic' }}>{v}</span>
             </div>
+          ))}
+        </div>
 
-            <div style={{ marginTop: 40, display: 'flex', gap: 14 }}>
-              {['Instagram', 'LinkedIn', 'YouTube', 'Spotify'].map(s => (
-                <a key={s} href="#" className="mono" style={{
-                  padding: '10px 14px', border: '1px solid rgba(245,239,227,0.3)',
-                  color: 'var(--paper-3)', textDecoration: 'none',
-                }}>{s} ↗</a>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            {!submitted ? (
-              <form onSubmit={submit} style={{
-                background: 'rgba(245,239,227,0.04)', padding: 40,
-                border: '1px solid rgba(245,239,227,0.2)',
-                display: 'flex', flexDirection: 'column', gap: 22,
-              }}>
-                {[
-                  { k: 'name', label: 'Your name' },
-                  { k: 'email', label: 'Email', type: 'email' },
-                  { k: 'project', label: "Project — e.g. Tamil children's audiobook" },
-                ].map(F => (
-                  <label key={F.k} style={{ display: 'block' }}>
-                    <span className="mono" style={{ color: 'var(--paper-3)', display: 'block', marginBottom: 6, opacity: 0.7 }}>{F.label}</span>
-                    <input
-                      type={F.type || 'text'}
-                      value={form[F.k]} onChange={handle(F.k)} required
-                      style={{
-                        width: '100%', padding: '12px 0', background: 'transparent',
-                        border: 'none', borderBottom: '1px solid rgba(245,239,227,0.3)',
-                        fontFamily: 'Spectral, serif', fontSize: 18, color: 'var(--paper)',
-                        outline: 'none',
-                      }}
-                    />
-                  </label>
-                ))}
-                <label>
-                  <span className="mono" style={{ color: 'var(--paper-3)', display: 'block', marginBottom: 6, opacity: 0.7 }}>Brief</span>
-                  <textarea
-                    value={form.message} onChange={handle('message')} required rows={5}
-                    placeholder="Length, register, deadline…"
-                    style={{
-                      width: '100%', padding: '12px 0', background: 'transparent',
-                      border: 'none', borderBottom: '1px solid rgba(245,239,227,0.3)',
-                      fontFamily: 'Spectral, serif', fontSize: 18, color: 'var(--paper)',
-                      outline: 'none', resize: 'vertical',
-                    }}
-                  />
-                </label>
-                <button type="submit" className="submit-btn" style={{
-                  marginTop: 14, padding: '16px 30px',
-                  background: 'var(--accent)', color: 'var(--paper)',
-                  border: 'none', cursor: 'pointer', alignSelf: 'flex-start',
-                  fontFamily: 'JetBrains Mono', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase',
-                  transition: 'transform 0.15s',
-                }}>
-                  Send enquiry →
-                </button>
-              </form>
-            ) : (
-              <div className="anim-up" style={{
-                background: 'var(--accent)', color: 'var(--paper)',
-                padding: 60, display: 'flex', flexDirection: 'column', gap: 18,
-                justifyContent: 'center',
-              }}>
-                <div className="mono" style={{ color: 'var(--paper)' }}>✓ Sent</div>
-                <h3 className="display" style={{ fontSize: 44, margin: 0, fontWeight: 500, lineHeight: 1.05 }}>
-                  Thank you, {form.name || 'friend'}.<br/>
-                  <em>I will write back soon.</em>
-                </h3>
-                <p style={{ color: 'var(--paper)', opacity: 0.9, fontSize: 16, lineHeight: 1.6 }}>
-                  In the meantime, feel free to keep listening to the portfolio. Most replies come within two working days.
-                </p>
-              </div>
-            )}
-          </div>
+        <div style={{ marginTop: 40, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+          {['Instagram', 'LinkedIn', 'YouTube', 'Spotify'].map(s => (
+            <a key={s} href="#" className="mono" style={{
+              padding: '10px 14px', border: '1px solid rgba(245,239,227,0.3)',
+              color: 'var(--paper-3)', textDecoration: 'none',
+            }}>{s} ↗</a>
+          ))}
         </div>
       </div>
     </section>

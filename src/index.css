@@ -187,9 +187,6 @@ html[data-theme="modern"] section[id="contact"] h2,
 html[data-theme="modern"] section[id="contact"] em { color: #000 !important; }
 html[data-theme="modern"] section[id="contact"] .mono { color: #000 !important; opacity: 0.7; }
 html[data-theme="modern"] section[id="contact"] * { border-color: rgba(0,0,0,0.3) !important; color: #000; }
-html[data-theme="modern"] section[id="contact"] input,
-html[data-theme="modern"] section[id="contact"] textarea { color: #000 !important; }
-html[data-theme="modern"] section[id="contact"] button[type="submit"] { background: #000 !important; color: var(--accent) !important; }
 
 html[data-theme="craft"] em { color: var(--accent); }
 
