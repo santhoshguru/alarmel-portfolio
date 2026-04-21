@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en" data-theme="editorial">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alarmel — Voice Artist</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  /* ================================================================
+     THEME TOKENS — five themes, swapped via [data-theme] on <html>
+     Variables used throughout components: --paper, --paper-2, --paper-3,
+     --ink, --ink-2, --ink-3, --rule, --accent, --accent-deep,
+     --font-display, --font-body, --font-mono
+     ================================================================ */
+
+  /* Default — EDITORIAL (current cream magazine) */
+  :root, html[data-theme="editorial"] {
+    --paper: #F2EADB;
+    --paper-2: #EDE3D0;
+    --paper-3: #E5D8BE;
+    --ink: #1B1612;
+    --ink-2: #4A3F33;
+    --ink-3: #7A6B58;
+    --rule: #C9B998;
+    --accent: #A8351F;
+    --accent-deep: #7A2412;
+    --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+    --font-body: 'Spectral', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --display-weight: 500;
+    --display-tracking: -0.01em;
+  }
+
+  /* CRAFT — warm Tamil craft; ochre, maroon, temple gold, kolam lattice */
+  html[data-theme="craft"] {
+    --paper: #F5E9CF;         /* ochre paper */
+    --paper-2: #EEDBAE;
+    --paper-3: #E5CB90;
+    --ink: #2A1410;           /* maroon-black */
+    --ink-2: #5A2A1C;
+    --ink-3: #8A5C3A;
+    --rule: #C89350;
+    --accent: #8C1F1A;         /* deep maroon */
+    --accent-deep: #5E0F0A;
+    --gold: #C48A2E;
+    --font-display: 'Cormorant Garamond', 'Noto Serif Tamil', serif;
+    --font-body: 'Spectral', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --display-weight: 600;
+    --display-tracking: -0.005em;
+  }
+
+  /* DARK — cinematic film-credit black */
+  html[data-theme="dark"] {
+    --paper: #0E0C0A;
+    --paper-2: #15120E;
+    --paper-3: #1D1813;
+    --ink: #EFE7D4;            /* warm ivory */
+    --ink-2: #B8AF9B;
+    --ink-3: #7C7463;
+    --rule: #2B2620;
+    --accent: #D89A56;         /* amber */
+    --accent-deep: #A36B2C;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Spectral', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --display-weight: 400;
+    --display-tracking: -0.015em;
+  }
+
+  /* MODERN — brutalist color-block */
+  html[data-theme="modern"] {
+    --paper: #F4F2ED;           /* bone */
+    --paper-2: #EAE6DC;
+    --paper-3: #111;
+    --ink: #0A0A0A;
+    --ink-2: #2A2A2A;
+    --ink-3: #6A6A6A;
+    --rule: #0A0A0A;
+    --accent: #FF4D1C;          /* hot orange */
+    --accent-deep: #D1360A;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Space Grotesk', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --display-weight: 700;
+    --display-tracking: -0.045em;
+  }
+
+  /* SERENE — sage & cream, soft and botanical */
+  html[data-theme="serene"] {
+    --paper: #EEF0E5;
+    --paper-2: #E2E7D5;
+    --paper-3: #D6DDC5;
+    --ink: #2B3526;
+    --ink-2: #4C5A41;
+    --ink-3: #7E8975;
+    --rule: #B8C3A3;
+    --accent: #5A6B3D;         /* forest */
+    --accent-deep: #3D4A27;
+    --font-display: 'Lora', Georgia, serif;
+    --font-body: 'Lora', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --display-weight: 500;
+    --display-tracking: -0.01em;
+  }
+
+  /* ================================================================
+     BASE
+     ================================================================ */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .display { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); }
+  .mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 0; }
+
+  #root { min-height: 100vh; position: relative; }
+
+  .tweaks-panel { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
+
+  /* ================================================================
+     THEME BACKGROUNDS — each theme paints a subtle, flat texture
+     (No gradients, per brief)
+     ================================================================ */
+
+  /* CRAFT: diagonal dot lattice = simplified kolam */
+  html[data-theme="craft"] body {
+    background-image:
+      radial-gradient(circle, rgba(140, 31, 26, 0.12) 1px, transparent 1.6px),
+      radial-gradient(circle, rgba(196, 138, 46, 0.10) 1px, transparent 1.6px);
+    background-size: 26px 26px, 26px 26px;
+    background-position: 0 0, 13px 13px;
+  }
+
+  /* DARK: faint film grain via tiny noise dots */
+  html[data-theme="dark"] body {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(239, 231, 212, 0.025) 1px, transparent 0);
+    background-size: 3px 3px;
+  }
+
+  /* MODERN: flat — but a single massive display numeral in the margin */
+  html[data-theme="modern"] body {
+    background: var(--paper);
+  }
+  html[data-theme="modern"] #root::before {
+    content: "01";
+    position: absolute;
+    top: 80px;
+    right: -20px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 380px;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.08;
+    letter-spacing: -0.06em;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* SERENE: soft flat with a barely-there vertical rule pattern */
+  html[data-theme="serene"] body {
+    background-image:
+      linear-gradient(90deg, transparent 0, transparent calc(50% - 0.5px), rgba(184, 195, 163, 0.25) calc(50% - 0.5px), rgba(184, 195, 163, 0.25) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+    background-size: 160px 100%;
+  }
+
+  /* ================================================================
+     THEME-SCOPED COMPONENT TWEAKS
+     ================================================================ */
+
+  /* DARK — invert the #contact and #training style areas that were var(--ink)
+     In dark mode, --ink IS light. The contact section uses inline background
+     var(--ink), which gives us near-black → we recolor its inner text to paper
+     via CSS override */
+  html[data-theme="dark"] section[id="contact"] { background: #060503 !important; }
+  html[data-theme="dark"] section[id="contact"] * { border-color: rgba(239, 231, 212, 0.12) !important; }
+
+  /* MODERN — everything sharp, remove italics, squared selection */
+  html[data-theme="modern"] em {
+    font-style: normal;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 8px;
+  }
+  html[data-theme="modern"] .display { text-transform: none; }
+  html[data-theme="modern"] section[id="contact"] {
+    background: var(--accent) !important; color: #000 !important;
+  }
+  html[data-theme="modern"] section[id="contact"] h2,
+  html[data-theme="modern"] section[id="contact"] em { color: #000 !important; }
+  html[data-theme="modern"] section[id="contact"] .mono { color: #000 !important; opacity: 0.7; }
+  html[data-theme="modern"] section[id="contact"] * { border-color: rgba(0,0,0,0.3) !important; color: #000; }
+  html[data-theme="modern"] section[id="contact"] input,
+  html[data-theme="modern"] section[id="contact"] textarea { color: #000 !important; }
+  html[data-theme="modern"] section[id="contact"] button[type="submit"] { background: #000 !important; color: var(--accent) !important; }
+
+  /* CRAFT — subtle maroon underline on em; Tamil numerals feel */
+  html[data-theme="craft"] em { color: var(--accent); }
+
+  /* SERENE — softer contact */
+  html[data-theme="serene"] section[id="contact"] { background: var(--accent-deep) !important; }
+  html[data-theme="serene"] section[id="contact"] em { color: #D6DDC5 !important; }
+
+  /* ================================================================
+     ANIMATIONS
+     ================================================================ */
+  @keyframes fadeUp { 0% { transform: translateY(14px); } 100% { transform: translateY(0); } }
+  @keyframes fadeUpSm { 0% { transform: translateY(8px); } 100% { transform: translateY(0); } }
+  @keyframes scaleIn { 0% { transform: scale(0.97); } 100% { transform: scale(1); } }
+  .anim-fade   { /* no-op */ }
+  .anim-up     { animation: fadeUp 0.9s cubic-bezier(0.2,0.7,0.3,1) both; }
+  .anim-up-sm  { animation: fadeUpSm 0.7s ease both; }
+  .anim-scale  { animation: scaleIn 1.1s cubic-bezier(0.2,0.7,0.3,1) both; }
+  .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; }
+  .d3 { animation-delay: 0.35s; } .d4 { animation-delay: 0.5s; }
+  .d5 { animation-delay: 0.7s; }
+
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { animation: marquee 40s linear infinite; }
+
+  .submit-btn:hover { transform: scale(1.02); }
+  .submit-btn:active { transform: scale(0.97); }
+
+  @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  .vinyl-spin { animation: spin 4s linear infinite; }
+
+  @keyframes eqBar { 0%, 100% { height: 12px; } 50% { height: 50px; } }
+  .eq-bar { height: 12px; animation-name: eqBar; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+  .hover-scale { transition: transform 0.15s; }
+  .hover-scale:hover { transform: scale(1.04); }
+  .hover-scale:active { transform: scale(0.94); }
+</style>
+
+<script type="application/json" id="tweak-defaults">
+{ "playerStyle": "waveform", "theme": "editorial" }
+</script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<!-- React + Babel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- App pieces -->
+<script type="text/babel" src="src/data.jsx"></script>
+<script type="text/babel" src="src/Player.jsx"></script>
+<script type="text/babel" src="src/Sections.jsx"></script>
+<script type="text/babel" src="src/App.jsx"></script>
+
+</body>
+</html>
