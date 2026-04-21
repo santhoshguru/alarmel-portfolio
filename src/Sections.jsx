@@ -111,7 +111,7 @@ function Hero() {
         }} />
         <img
           src="assets/alarmel.jpg"
-          alt="Alarmel, Tamil voice artist and audiobook narrator, photographed at home in Chennai"
+          alt="Alarmel Mangai, Tamil voice artist and audiobook narrator, photographed at home in Chennai"
           loading="eager"
           width="520"
           height="650"
@@ -496,7 +496,7 @@ function Contact() {
         <div style={{ marginTop: 50, borderTop: '1px solid rgba(245,239,227,0.2)', paddingTop: 30 }}>
           <div className="mono" style={{ color: 'var(--paper-3)', marginBottom: 18, opacity: 0.7 }}>Direct</div>
           {[
-            ['Email', 'alarmel@example.com'],
+            ['Email', 'alarmel@gmail.com', 'mailto:alarmel@gmail.com'],
             ['WhatsApp', '+91 98408 63730', 'https://wa.me/919840863730?text=Hi%20Alarmel%2C%20I%27d%20like%20to%20reach%20out%20about%20voice-over%20work.'],
             ['Studio', 'Chennai · Tamil Nadu · India'],
             ['Hours', 'Mon–Sat · 9am – 5pm IST'],
@@ -519,11 +519,14 @@ function Contact() {
         </div>
 
         <div style={{ marginTop: 40, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-          {['Instagram', 'LinkedIn'].map(s => (
-            <a key={s} href="#" className="mono" style={{
+          {[
+            { label: 'Instagram', href: 'https://www.instagram.com/alarmel_voiceartist/' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alamelu-mangai-voice-artist/' },
+          ].map(s => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="mono" style={{
               padding: '10px 14px', border: '1px solid rgba(245,239,227,0.3)',
               color: 'var(--paper-3)', textDecoration: 'none',
-            }}>{s} ↗</a>
+            }}>{s.label} ↗</a>
           ))}
         </div>
       </div>
@@ -610,7 +613,7 @@ function Footer() {
   return (
     <footer style={{ background: 'var(--ink)', color: 'var(--paper-3)', padding: '30px 40px', borderTop: '1px solid rgba(245,239,227,0.15)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 20 }}>
-        <div className="display" style={{ fontSize: 24, fontStyle: 'italic', color: 'var(--paper)' }}>Alarmel</div>
+        <div className="display" style={{ fontSize: 24, fontStyle: 'italic', color: 'var(--paper)' }}>Alarmel Mangai</div>
         <div className="mono" style={{ fontSize: 10, opacity: 0.7 }}>© 2026 · Tamil voice artist · Chennai · India</div>
       </div>
     </footer>
