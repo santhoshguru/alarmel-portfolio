@@ -9,13 +9,15 @@
     "prebuild": "node scripts/build-manifest.mjs",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:responsive": "playwright test"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@vitejs/plugin-react": "^4.3.3",
     "csv-parse": "^6.2.1",
     "music-metadata": "^11.12.3",

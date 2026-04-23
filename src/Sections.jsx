@@ -79,7 +79,7 @@ function Hero() {
         <p
           className="anim-fade d4"
           style={{
-            marginTop: 22, fontSize: 18, lineHeight: 1.5,
+            marginTop: 22, fontSize: 'var(--fs-body-lg)', lineHeight: 1.5,
             color: 'var(--ink-2)', maxWidth: 520,
             fontStyle: 'italic',
           }}
@@ -94,10 +94,10 @@ function Hero() {
           <a href="#voices" style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,
             padding: '12px 20px', background: 'var(--ink)', color: 'var(--paper)',
-            textDecoration: 'none', fontFamily: 'JetBrains Mono', fontSize: 11,
+            textDecoration: 'none', fontFamily: 'JetBrains Mono', fontSize: 'var(--fs-mono)',
             letterSpacing: '0.18em', textTransform: 'uppercase',
           }}>
-            <span style={{ fontSize: 13 }}>▶</span> Listen to the portfolio
+            <span style={{ fontSize: 'var(--fs-caption)' }}>▶</span> Listen to the portfolio
           </a>
           <a href="#contact" className="mono" style={{ color: 'var(--ink-2)', textDecoration: 'underline', textUnderlineOffset: 4 }}>
             Get in touch →
@@ -124,7 +124,7 @@ function Hero() {
           }}
         />
         <div style={{
-          marginTop: 10, fontStyle: 'italic', fontSize: 13,
+          marginTop: 10, fontStyle: 'italic', fontSize: 'var(--fs-caption)',
           color: 'var(--ink-3)', textAlign: 'right',
         }}>
           Alarmel, photographed at home — Chennai, March 2026.
@@ -151,7 +151,7 @@ function Marquee() {
       <div className="marquee-track" style={{ display: 'flex', gap: 32, whiteSpace: 'nowrap', width: 'fit-content' }}>
         {[...items, ...items, ...items, ...items].map((t, i) => (
           <span key={i} className="display" style={{
-            fontSize: 26, fontStyle: t === '·' ? 'normal' : 'italic',
+            fontSize: 'var(--fs-marquee)', fontStyle: t === '·' ? 'normal' : 'italic',
             color: t === '·' ? 'var(--accent)' : 'var(--ink-2)',
             fontWeight: 400,
           }}>{t}</span>
@@ -178,17 +178,17 @@ function About() {
           </h2>
         </div>
         <div style={{ paddingTop: 6 }}>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', margin: 0 }}>
+          <p style={{ fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--ink-2)', margin: 0 }}>
             <span className="display" style={{
-              float: 'left', fontSize: 72, lineHeight: 0.86,
+              float: 'left', fontSize: 'clamp(52px, 7vw, 72px)', lineHeight: 0.86,
               padding: '4px 10px 0 0', color: 'var(--accent)', fontWeight: 500,
             }}>I</span>
             loved the sound of a story read aloud long before I recorded one — the pause before a surprise, the lilt of a well-placed word, the way a child leans in when a voice softens. Voice acting is the work I came to follow that love into, studied formally so affection could be met by craft.
           </p>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', marginTop: 14 }}>
+          <p style={{ fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--ink-2)', marginTop: 14 }}>
             My days now begin in a small quiet room with a microphone. I record in Tamil — children's stories mostly, but also audiobooks, documentary narration, commercials, character pieces and devotional recitation. I work slowly, listen closely, and never submit a take I wouldn't listen to twice.
           </p>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', marginTop: 14, fontStyle: 'italic' }}>
+          <p style={{ fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--ink-2)', marginTop: 14, fontStyle: 'italic' }}>
             (Before this life in sound, I spent a long, steady career in Indian banking. The patience it asked of me turned out to be the same the booth asks now.)
           </p>
         </div>
@@ -198,11 +198,11 @@ function About() {
       <div className="two-col-even" style={{ marginTop: 44 }}>
         <div>
           <div className="mono" style={{ color: 'var(--accent)', marginBottom: 10 }}>Aside from the booth</div>
-          <h3 className="display" style={{ fontSize: 28, lineHeight: 1.1, margin: 0, fontWeight: 500 }}>
+          <h3 className="display" style={{ fontSize: 'var(--fs-h3)', lineHeight: 1.1, margin: 0, fontWeight: 500 }}>
             A life arranged around <em>literature, devotion, and the body in motion.</em>
           </h3>
         </div>
-        <div style={{ color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.6 }}>
+        <div style={{ color: 'var(--ink-2)', fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)' }}>
           My readings are shaped by the things I love outside the studio: Tamil literature read slowly; bhajans sung in the household at dawn; yoga, aerobics and strength work that keep the breath in order; weekend cooking; and grandchildren whose afternoons I keep for myself.
         </div>
       </div>
@@ -240,7 +240,7 @@ function VoiceSamples({ playerStyle }) {
               The <em>portfolio.</em>
             </h2>
           </div>
-          <div style={{ maxWidth: 340, color: 'var(--ink-2)', fontSize: 15, lineHeight: 1.5, fontStyle: 'italic' }}>
+          <div style={{ maxWidth: 340, color: 'var(--ink-2)', fontSize: 'var(--fs-body-sm)', lineHeight: 1.5, fontStyle: 'italic' }}>
             Press play on any piece. The waveform is live — drag to scrub.
           </div>
         </div>
@@ -293,17 +293,17 @@ function VoiceSamples({ playerStyle }) {
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 }}>
                       <span className="display" style={{
-                        fontSize: 15, lineHeight: 1.2,
+                        fontSize: 'var(--fs-body-sm)', lineHeight: 1.2,
                         fontWeight: active ? 500 : 400,
                         color: active ? 'var(--ink)' : 'var(--ink-2)',
                       }}>
                         {t.title}
                       </span>
-                      <span className="mono" style={{ color: 'var(--ink-3)', fontSize: 10, flexShrink: 0 }}>
+                      <span className="mono" style={{ color: 'var(--ink-3)', flexShrink: 0 }}>
                         {t.duration}
                       </span>
                     </div>
-                    <div className="mono" style={{ fontSize: 9, color: 'var(--ink-3)' }}>
+                    <div className="mono" style={{ color: 'var(--ink-3)' }}>
                       {t.category}
                     </div>
                   </button>
@@ -372,10 +372,10 @@ function Testimonials() {
             border: '1px solid var(--rule)',
           }}>
             <Stars n={r.stars} />
-            <p style={{ fontSize: 16, lineHeight: 1.5, color: 'var(--ink)', fontStyle: 'italic', margin: '10px 0 14px 0' }}>
+            <p style={{ fontSize: 'var(--fs-body)', lineHeight: 1.55, color: 'var(--ink)', fontStyle: 'italic', margin: '10px 0 14px 0' }}>
               “{r.body}”
             </p>
-            <div className="display" style={{ fontSize: 16, fontWeight: 500 }}>{r.name}</div>
+            <div className="display" style={{ fontSize: 'var(--fs-body-lg)', fontWeight: 500 }}>{r.name}</div>
             {r.role && <div className="mono" style={{ color: 'var(--ink-3)', marginTop: 3 }}>{r.role}</div>}
           </div>
         ))}
@@ -410,7 +410,7 @@ function Contact() {
         }}>
           Send a <em style={{ color: '#E8B987' }}>brief.</em>
         </h2>
-        <p style={{ color: 'var(--paper-3)', fontSize: 16, lineHeight: 1.55, marginTop: 18, fontStyle: 'italic', opacity: 0.9 }}>
+        <p style={{ color: 'var(--paper-3)', fontSize: 'var(--fs-body)', lineHeight: 1.55, marginTop: 18, fontStyle: 'italic', opacity: 0.9 }}>
           For Tamil audiobooks, children's audio, brand films, documentary narration and commercial reads. I'll reply within two working days.
         </p>
 
@@ -496,7 +496,7 @@ function FAQ() {
             Common <em>questions.</em>
           </h2>
         </div>
-        <div style={{ maxWidth: 320, color: 'var(--ink-2)', fontSize: 15, lineHeight: 1.5, fontStyle: 'italic' }}>
+        <div style={{ maxWidth: 320, color: 'var(--ink-2)', fontSize: 'var(--fs-body-sm)', lineHeight: 1.5, fontStyle: 'italic' }}>
           The usual questions, answered.
         </div>
       </div>
@@ -507,14 +507,14 @@ function FAQ() {
             padding: '14px 4px',
           }}>
             <summary className="display" style={{
-              fontSize: 19, fontWeight: 500, cursor: 'pointer',
+              fontSize: 'var(--fs-summary)', fontWeight: 500, cursor: 'pointer',
               listStyle: 'none', display: 'flex', justifyContent: 'space-between',
               alignItems: 'baseline', gap: 16,
             }}>
               <span>{f.q}</span>
-              <span className="mono" style={{ color: 'var(--ink-3)', fontSize: 13, flexShrink: 0 }}>+</span>
+              <span className="mono" style={{ color: 'var(--ink-3)', fontSize: 'var(--fs-caption)', flexShrink: 0 }}>+</span>
             </summary>
-            <p style={{ marginTop: 10, fontSize: 16, lineHeight: 1.55, color: 'var(--ink-2)', maxWidth: 780 }}>
+            <p style={{ marginTop: 10, fontSize: 'var(--fs-body)', lineHeight: 1.55, color: 'var(--ink-2)', maxWidth: 780 }}>
               {f.a}
             </p>
           </details>
@@ -532,7 +532,7 @@ function Footer() {
     <footer style={{ background: 'var(--ink)', color: 'var(--paper-3)', padding: '20px var(--section-px)', borderTop: '1px solid rgba(245,239,227,0.15)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 16 }}>
         <div className="display" style={{ fontSize: 20, fontStyle: 'italic', color: 'var(--paper)' }}>Alarmel Mangai</div>
-        <div className="mono" style={{ fontSize: 10, opacity: 0.7 }}>© 2026 · Tamil voice artist · Chennai · India</div>
+        <div className="mono" style={{ opacity: 0.7 }}>© 2026 · Tamil voice artist · Chennai · India</div>
       </div>
     </footer>
   );

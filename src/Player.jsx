@@ -148,11 +148,28 @@ const fmt = (sec) => {
 // WAVEFORM
 // ============================================================
 function WaveformPlayer({ track, idx, total }) {
-  const BARS = 140;
-  const shape = useMemo(() => waveShape(track.seed, BARS), [track.seed]);
   const { audioRef, audioProps, isPlaying, setIsPlaying, progress, setProgress, totalSec, restart } = usePlayback(track);
   const [hover, setHover] = useState(null);
   const containerRef = useRef(null);
+
+  // Bar count is derived from rendered width so the waveform never overflows
+  // its container (140 bars + 2px gaps = 418px minimum — too wide for phones).
+  const [containerWidth, setContainerWidth] = useState(0);
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const obs = new ResizeObserver(entries => {
+      const w = entries[0]?.contentRect?.width || 0;
+      setContainerWidth(w);
+    });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  const BARS = containerWidth >= 900 ? 140
+             : containerWidth >= 600 ? 100
+             : containerWidth >= 400 ? 70
+             : 50;
+  const shape = useMemo(() => waveShape(track.seed, BARS), [track.seed, BARS]);
 
   const seek = (e) => {
     const r = containerRef.current.getBoundingClientRect();
@@ -173,7 +190,7 @@ function WaveformPlayer({ track, idx, total }) {
         margin: '14px 0 6px 0', color: 'var(--ink)',
         fontWeight: 500, letterSpacing: '-0.015em'
       }}>{track.title}</h2>
-      <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 17, lineHeight: 1.55, marginTop: 8 }}>
+      <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 'var(--fs-body)', lineHeight: 1.55, marginTop: 8 }}>
         {track.description}
       </p>
 
@@ -186,6 +203,7 @@ function WaveformPlayer({ track, idx, total }) {
           style={{
             position: 'relative', height: 130, cursor: 'pointer',
             display: 'flex', alignItems: 'center', gap: 2, userSelect: 'none',
+            minWidth: 0, overflow: 'hidden',
           }}
         >
           {shape.map((v, i) => {
@@ -220,7 +238,7 @@ function WaveformPlayer({ track, idx, total }) {
         </div>
         <div style={{
           display: 'flex', justifyContent: 'space-between', marginTop: 10,
-          fontFamily: 'JetBrains Mono, monospace', fontSize: 11,
+          fontFamily: 'JetBrains Mono, monospace', fontSize: 'var(--fs-mono)',
           color: 'var(--ink-3)', letterSpacing: '0.1em'
         }}>
           <span>{fmt(progress * totalSec)}</span>
@@ -270,10 +288,10 @@ function VinylPlayer({ track, idx, total }) {
         fontSize: 'clamp(28px, 4vw, 46px)', lineHeight: 1.05,
         margin: '14px 0 6px 0', fontWeight: 500, letterSpacing: '-0.015em'
       }}>{track.title}</h2>
-      <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 17, lineHeight: 1.55 }}>{track.description}</p>
+      <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 'var(--fs-body)', lineHeight: 1.55 }}>{track.description}</p>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 30, marginTop: 28, flexWrap: 'wrap' }}>
-        <div style={{ position: 'relative', width: 220, height: 220 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 30, marginTop: 28, flexWrap: 'wrap', minWidth: 0 }}>
+        <div style={{ position: 'relative', width: 220, height: 220, maxWidth: '100%' }}>
           <div style={{ width: '100%', height: '100%', transform: `rotate(${rot}deg)`, transition: isPlaying ? 'none' : 'transform 0.6s ease' }}>
             <svg width="220" height="220" viewBox="0 0 220 220">
               <defs>
@@ -341,7 +359,7 @@ function RadioPlayer({ track, idx, total }) {
         fontSize: 'clamp(28px, 4vw, 46px)', lineHeight: 1.05,
         margin: '14px 0 6px 0', fontWeight: 500
       }}>{track.title}</h2>
-      <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 17, lineHeight: 1.55 }}>{track.description}</p>
+      <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 'var(--fs-body)', lineHeight: 1.55 }}>{track.description}</p>
 
       <div style={{
         marginTop: 28,
@@ -375,7 +393,7 @@ function RadioPlayer({ track, idx, total }) {
               }}
             />
           </div>
-          <div style={{ marginTop: 8, fontSize: 11, color: 'rgba(0,0,0,0.7)' }}>
+          <div style={{ marginTop: 8, fontSize: 'var(--fs-mono)', color: 'rgba(0,0,0,0.7)' }}>
             STATION {String(idx + 1).padStart(2, '0')} · ALARMEL FM · {track.category.toUpperCase()}
           </div>
         </div>

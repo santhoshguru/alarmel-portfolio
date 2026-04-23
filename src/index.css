@@ -20,6 +20,17 @@
   --display-weight: 500;
   --display-tracking: -0.01em;
 
+  /* Type scale — every fontSize in the app pulls from here. */
+  --fs-body:     clamp(15px, 0.3vw + 14px, 17px);
+  --fs-body-lg:  clamp(16px, 0.4vw + 15px, 18px);   /* hero lede */
+  --fs-body-sm:  clamp(14px, 0.15vw + 13.5px, 15px); /* asides, meta */
+  --fs-caption:  13px;
+  --fs-mono:     11px;                               /* floor for mono labels */
+  --fs-h3:       clamp(22px, 1.6vw + 16px, 30px);
+  --fs-summary:  clamp(17px, 0.7vw + 14px, 20px);
+  --fs-marquee:  clamp(18px, 2.5vw + 10px, 26px);
+  --lh-body:     1.6;
+
   /* Rhythm — one lever for all major vertical/horizontal section padding. */
   --section-py: 64px;
   --section-px: 32px;
@@ -46,16 +57,20 @@
    BASE
    ================================================================ */
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--paper); color: var(--ink);
+  overflow-x: hidden; /* safety net: a single runaway child shouldn't create page-level horizontal scroll */
+}
 body {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 17px;
+  font-size: var(--fs-body);
   line-height: 1.55;
 }
 
 .display { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); }
-.mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+.mono { font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: 0.18em; text-transform: uppercase; }
 
 ::selection { background: var(--accent); color: var(--paper); }
 
