@@ -1,25 +1,5 @@
 [
   {
-    "id": "ad_anuj_tiles",
-    "filename": "ad_anuj_tiles.mp3",
-    "audioUrl": "audio/ad_anuj_tiles.mp3",
-    "title": "Anuj Tiles",
-    "category": "Advertisement",
-    "description": "Commercial voice-over for Anuj Tiles",
-    "duration": "0:29",
-    "seed": 260327
-  },
-  {
-    "id": "ad_tata_iodine_salt",
-    "filename": "ad_tata_iodine_salt.mp3",
-    "audioUrl": "audio/ad_tata_iodine_salt.mp3",
-    "title": "Tata Iodine Salt",
-    "category": "Advertisement",
-    "description": "Commercial voice-over for Tata Iodine Salt",
-    "duration": "0:17",
-    "seed": 154013
-  },
-  {
     "id": "ad_thangamayil_jewellery",
     "filename": "ad_thangamayil_jewellery.mp3",
     "audioUrl": "audio/ad_thangamayil_jewellery.mp3",
@@ -48,16 +28,6 @@
     "description": "Commercial voice-over for Alarmel Real Estate",
     "duration": "0:20",
     "seed": 443036
-  },
-  {
-    "id": "ad_sathya",
-    "filename": "ad_sathya.mp3",
-    "audioUrl": "audio/ad_sathya.mp3",
-    "title": "Sathya",
-    "category": "Advertisement",
-    "description": "Commercial voice-over for Sathya",
-    "duration": "0:43",
-    "seed": 882127
   },
   {
     "id": "documentary_smart_salem",
@@ -508,15 +478,5 @@
     "description": "Drama — Seeds (Vidhaigal)",
     "duration": "3:00",
     "seed": 223386
-  },
-  {
-    "id": "intro_promo",
-    "filename": "intro_promo.mp3",
-    "audioUrl": "audio/intro_promo.mp3",
-    "title": "Intro / Promo",
-    "category": "Intro",
-    "description": "Voice-over artist introduction and promo reel",
-    "duration": "0:41",
-    "seed": 688295
   }
 ]
