@@ -65,3 +65,5 @@ The live site updates in about a minute. To hide a track without deleting it, fl
 ## About me
 
 I'm **Santhosh Guru** — product manager. This repo is one of the ways I practice the craft: take a real problem with a real user, scope it tightly, ship it, and keep iterating. If you're hiring PMs who can prototype and ship end-to-end, I'd love to talk.
+
+Find me on [LinkedIn](https://www.linkedin.com/in/santhoshguru/).
