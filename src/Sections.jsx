@@ -235,7 +235,7 @@ function VoiceSamples({ playerStyle }) {
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 28, flexWrap: 'wrap', gap: 14 }}>
           <div>
-            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 8 }}>§ Voice Samples · 15 Pieces</div>
+            <div className="mono" style={{ color: 'var(--accent)', marginBottom: 8 }}>§ Voice Samples · {TRACKS.length} Pieces</div>
             <h2 id="voices-heading" className="display" style={{ fontSize: 'clamp(32px, 4.6vw, 60px)', lineHeight: 1, margin: 0, fontWeight: 500, letterSpacing: '-0.02em' }}>
               The <em>portfolio.</em>
             </h2>

@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "manifest": "node scripts/build-manifest.mjs",
+    "predev": "node scripts/build-manifest.mjs",
+    "prebuild": "node scripts/build-manifest.mjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -14,6 +17,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.3",
+    "csv-parse": "^6.2.1",
+    "music-metadata": "^11.12.3",
     "vite": "^5.4.11"
   }
 }

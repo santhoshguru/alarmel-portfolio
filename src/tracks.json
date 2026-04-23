@@ -1,0 +1,522 @@
+[
+  {
+    "id": "ad_anuj_tiles",
+    "filename": "ad_anuj_tiles.mp3",
+    "audioUrl": "audio/ad_anuj_tiles.mp3",
+    "title": "Anuj Tiles",
+    "category": "Advertisement",
+    "description": "Commercial voice-over for Anuj Tiles",
+    "duration": "0:29",
+    "seed": 260327
+  },
+  {
+    "id": "ad_tata_iodine_salt",
+    "filename": "ad_tata_iodine_salt.mp3",
+    "audioUrl": "audio/ad_tata_iodine_salt.mp3",
+    "title": "Tata Iodine Salt",
+    "category": "Advertisement",
+    "description": "Commercial voice-over for Tata Iodine Salt",
+    "duration": "0:17",
+    "seed": 154013
+  },
+  {
+    "id": "ad_thangamayil_jewellery",
+    "filename": "ad_thangamayil_jewellery.mp3",
+    "audioUrl": "audio/ad_thangamayil_jewellery.mp3",
+    "title": "Thangamayil Jewellery",
+    "category": "Advertisement",
+    "description": "Commercial voice-over for Thangamayil Jewellery",
+    "duration": "0:20",
+    "seed": 418696
+  },
+  {
+    "id": "ad_thangamayil_smart_gold",
+    "filename": "ad_thangamayil_smart_gold.mp3",
+    "audioUrl": "audio/ad_thangamayil_smart_gold.mp3",
+    "title": "Thangamayil Smart Gold",
+    "category": "Advertisement",
+    "description": "Commercial voice-over for Thangamayil Smart Gold",
+    "duration": "0:33",
+    "seed": 148491
+  },
+  {
+    "id": "ad_alarmel_realestate",
+    "filename": "ad_alarmel_realestate.mp3",
+    "audioUrl": "audio/ad_alarmel_realestate.mp3",
+    "title": "Alarmel Real Estate",
+    "category": "Advertisement",
+    "description": "Commercial voice-over for Alarmel Real Estate",
+    "duration": "0:20",
+    "seed": 443036
+  },
+  {
+    "id": "ad_sathya",
+    "filename": "ad_sathya.mp3",
+    "audioUrl": "audio/ad_sathya.mp3",
+    "title": "Sathya",
+    "category": "Advertisement",
+    "description": "Commercial voice-over for Sathya",
+    "duration": "0:43",
+    "seed": 882127
+  },
+  {
+    "id": "documentary_smart_salem",
+    "filename": "documentary_smart_salem.mp3",
+    "audioUrl": "audio/documentary_smart_salem.mp3",
+    "title": "Smart Salem",
+    "category": "Documentary",
+    "description": "Documentary narration — Smart Salem",
+    "duration": "1:58",
+    "seed": 382105
+  },
+  {
+    "id": "documentary",
+    "filename": "documentary.mp3",
+    "audioUrl": "audio/documentary.mp3",
+    "title": "Documentary Sample",
+    "category": "Documentary",
+    "description": "Documentary narration sample",
+    "duration": "1:26",
+    "seed": 980302
+  },
+  {
+    "id": "dubbing_bharathi_baskar",
+    "filename": "dubbing_bharathi_baskar.mp3",
+    "audioUrl": "audio/dubbing_bharathi_baskar.mp3",
+    "title": "Bharathi Baskar",
+    "category": "Dubbing",
+    "description": "Dubbing voice-over — Bharathi Baskar",
+    "duration": "0:55",
+    "seed": 415261
+  },
+  {
+    "id": "news_reading",
+    "filename": "news_reading.mp3",
+    "audioUrl": "audio/news_reading.mp3",
+    "title": "News Reading",
+    "category": "News Reading",
+    "description": "News bulletin reading sample",
+    "duration": "1:15",
+    "seed": 297775
+  },
+  {
+    "id": "audiobook_adult_kattidam_sollum_kadhai",
+    "filename": "audiobook_adult_kattidam_sollum_kadhai.mp3",
+    "audioUrl": "audio/audiobook_adult_kattidam_sollum_kadhai.mp3",
+    "title": "Kattidam Sollum Kadhai",
+    "category": "Audiobook (Adult)",
+    "description": "Audiobook narration — Kattidam Sollum Kadhai",
+    "duration": "1:26",
+    "seed": 799705
+  },
+  {
+    "id": "audiobook_adult_yaanai_doctor",
+    "filename": "audiobook_adult_yaanai_doctor.mp3",
+    "audioUrl": "audio/audiobook_adult_yaanai_doctor.mp3",
+    "title": "Yaanai Doctor (Jeyamohan)",
+    "category": "Audiobook (Adult)",
+    "description": "Audiobook narration — Yaanai Doctor by Jeyamohan",
+    "duration": "1:37",
+    "seed": 23261
+  },
+  {
+    "id": "audiobook_kids_do_do_manga",
+    "filename": "audiobook_kids_do_do_manga.mp3",
+    "audioUrl": "audio/audiobook_kids_do_do_manga.mp3",
+    "title": "Do Do Manga",
+    "category": "Audiobook (Kids)",
+    "description": "Children's audiobook — Do Do Manga",
+    "duration": "0:12",
+    "seed": 682059
+  },
+  {
+    "id": "audiobook_kids_oliver",
+    "filename": "audiobook_kids_oliver.mp3",
+    "audioUrl": "audio/audiobook_kids_oliver.mp3",
+    "title": "Oliver",
+    "category": "Audiobook (Kids)",
+    "description": "Children's audiobook — Oliver",
+    "duration": "3:00",
+    "seed": 998014
+  },
+  {
+    "id": "audiobook_kids_pigly",
+    "filename": "audiobook_kids_pigly.mp3",
+    "audioUrl": "audio/audiobook_kids_pigly.mp3",
+    "title": "Pigly",
+    "category": "Audiobook (Kids)",
+    "description": "Children's audiobook — Pigly",
+    "duration": "3:00",
+    "seed": 881892
+  },
+  {
+    "id": "audiobook_kids_sliced_bread",
+    "filename": "audiobook_kids_sliced_bread.mp3",
+    "audioUrl": "audio/audiobook_kids_sliced_bread.mp3",
+    "title": "Sliced Bread",
+    "category": "Audiobook (Kids)",
+    "description": "Children's audiobook — Sliced Bread",
+    "duration": "1:22",
+    "seed": 667954
+  },
+  {
+    "id": "audiobook_kids_super_powers",
+    "filename": "audiobook_kids_super_powers.mp3",
+    "audioUrl": "audio/audiobook_kids_super_powers.mp3",
+    "title": "Super Powers",
+    "category": "Audiobook (Kids)",
+    "description": "Children's audiobook — Super Powers",
+    "duration": "3:00",
+    "seed": 846475
+  },
+  {
+    "id": "audiobook_kids_little_business_women",
+    "filename": "audiobook_kids_little_business_women.mp3",
+    "audioUrl": "audio/audiobook_kids_little_business_women.mp3",
+    "title": "Little Business Women",
+    "category": "Audiobook (Kids)",
+    "description": "Children's audiobook — Little Business Women",
+    "duration": "3:00",
+    "seed": 196705
+  },
+  {
+    "id": "audiobook_kids_preethi_wish",
+    "filename": "audiobook_kids_preethi_wish.mp3",
+    "audioUrl": "audio/audiobook_kids_preethi_wish.mp3",
+    "title": "Preethi's Wish",
+    "category": "Audiobook (Kids)",
+    "description": "Children's audiobook — Preethi's Wish",
+    "duration": "3:00",
+    "seed": 376054
+  },
+  {
+    "id": "story_hidden_map",
+    "filename": "story_hidden_map.mp3",
+    "audioUrl": "audio/story_hidden_map.mp3",
+    "title": "Hidden Map",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The Hidden Map",
+    "duration": "3:00",
+    "seed": 65246
+  },
+  {
+    "id": "story_kadasi_mambazham",
+    "filename": "story_kadasi_mambazham.mp3",
+    "audioUrl": "audio/story_kadasi_mambazham.mp3",
+    "title": "Kadasi Mambazham",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Kadasi Mambazham (The Last Mango)",
+    "duration": "3:00",
+    "seed": 556863
+  },
+  {
+    "id": "story_magic_spoon_v1",
+    "filename": "story_magic_spoon_v1.mp3",
+    "audioUrl": "audio/story_magic_spoon_v1.mp3",
+    "title": "Magic Spoon",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The Magic Spoon",
+    "duration": "3:00",
+    "seed": 884616
+  },
+  {
+    "id": "story_marakatham_kal",
+    "filename": "story_marakatham_kal.mp3",
+    "audioUrl": "audio/story_marakatham_kal.mp3",
+    "title": "Marakatham Kal",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The Emerald Stone (Marakatham Kal)",
+    "duration": "3:00",
+    "seed": 899231
+  },
+  {
+    "id": "story_mudhal_parisu",
+    "filename": "story_mudhal_parisu.mp3",
+    "audioUrl": "audio/story_mudhal_parisu.mp3",
+    "title": "Mudhal Parisu",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The First Prize (Mudhal Parisu)",
+    "duration": "3:00",
+    "seed": 257215
+  },
+  {
+    "id": "story_palapazha_thirudan",
+    "filename": "story_palapazha_thirudan.mp3",
+    "audioUrl": "audio/story_palapazha_thirudan.mp3",
+    "title": "Palapazha Thirudan",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The Fruit Thief (Palapazha Thirudan)",
+    "duration": "3:00",
+    "seed": 955909
+  },
+  {
+    "id": "story_paper_thief",
+    "filename": "story_paper_thief.mp3",
+    "audioUrl": "audio/story_paper_thief.mp3",
+    "title": "Paper Thief",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The Paper Thief",
+    "duration": "3:00",
+    "seed": 680624
+  },
+  {
+    "id": "story_paris_corner",
+    "filename": "story_paris_corner.mp3",
+    "audioUrl": "audio/story_paris_corner.mp3",
+    "title": "Paris Corner",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Paris Corner",
+    "duration": "1:56",
+    "seed": 992054
+  },
+  {
+    "id": "story_pattaboochi_peen",
+    "filename": "story_pattaboochi_peen.mp3",
+    "audioUrl": "audio/story_pattaboochi_peen.mp3",
+    "title": "Pattaboochi Peen",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Pattaboochi Peen",
+    "duration": "3:00",
+    "seed": 479606
+  },
+  {
+    "id": "story_rajuvin_thottam",
+    "filename": "story_rajuvin_thottam.mp3",
+    "audioUrl": "audio/story_rajuvin_thottam.mp3",
+    "title": "Rajuvin Thottam",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Raju's Garden (Rajuvin Thottam)",
+    "duration": "3:00",
+    "seed": 15864
+  },
+  {
+    "id": "story_swimming_star",
+    "filename": "story_swimming_star.mp3",
+    "audioUrl": "audio/story_swimming_star.mp3",
+    "title": "Swimming Star",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Swimming Star",
+    "duration": "3:00",
+    "seed": 716827
+  },
+  {
+    "id": "story_last_mango",
+    "filename": "story_last_mango.mp3",
+    "audioUrl": "audio/story_last_mango.mp3",
+    "title": "Last Mango",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Last Mango",
+    "duration": "3:00",
+    "seed": 313342
+  },
+  {
+    "id": "story_ice_thatha",
+    "filename": "story_ice_thatha.mp3",
+    "audioUrl": "audio/story_ice_thatha.mp3",
+    "title": "Ice Thatha",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Ice Thatha (The Ice Grandfather)",
+    "duration": "3:00",
+    "seed": 878991
+  },
+  {
+    "id": "story_velli_poolak",
+    "filename": "story_velli_poolak.mp3",
+    "audioUrl": "audio/story_velli_poolak.mp3",
+    "title": "Velli Poolak",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Velli Poolak (Silver Flowers)",
+    "duration": "3:00",
+    "seed": 400068
+  },
+  {
+    "id": "story_the_secret_tree",
+    "filename": "story_the_secret_tree.mp3",
+    "audioUrl": "audio/story_the_secret_tree.mp3",
+    "title": "The Secret Tree",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The Secret Tree",
+    "duration": "3:00",
+    "seed": 435316
+  },
+  {
+    "id": "story_hari",
+    "filename": "story_hari.mp3",
+    "audioUrl": "audio/story_hari.mp3",
+    "title": "Hari",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Hari",
+    "duration": "3:00",
+    "seed": 651609
+  },
+  {
+    "id": "story_chippi",
+    "filename": "story_chippi.mp3",
+    "audioUrl": "audio/story_chippi.mp3",
+    "title": "Chippi",
+    "category": "Tamil Story",
+    "description": "Tamil children's story — Chippi",
+    "duration": "3:00",
+    "seed": 834690
+  },
+  {
+    "id": "story_chutti",
+    "filename": "story_chutti.mp3",
+    "audioUrl": "audio/story_chutti.mp3",
+    "title": "Chutti",
+    "category": "Tamil Story",
+    "description": "Tamil children's story — Chutti",
+    "duration": "3:00",
+    "seed": 153302
+  },
+  {
+    "id": "story_paatiyin_mandhirakol",
+    "filename": "story_paatiyin_mandhirakol.mp3",
+    "audioUrl": "audio/story_paatiyin_mandhirakol.mp3",
+    "title": "Paatiyin Mandhirakol",
+    "category": "Tamil Story",
+    "description": "Tamil short story — Grandmother's Magic Staff (Paatiyin Mandhirakol)",
+    "duration": "3:00",
+    "seed": 687297
+  },
+  {
+    "id": "story_mandhira_kol",
+    "filename": "story_mandhira_kol.mp3",
+    "audioUrl": "audio/story_mandhira_kol.mp3",
+    "title": "Mandhira Kol",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The Magic Staff (Mandhira Kol)",
+    "duration": "3:00",
+    "seed": 427156
+  },
+  {
+    "id": "story_kadal",
+    "filename": "story_kadal.mp3",
+    "audioUrl": "audio/story_kadal.mp3",
+    "title": "Kadal",
+    "category": "Tamil Story",
+    "description": "Tamil short story — The Sea (Kadal)",
+    "duration": "1:29",
+    "seed": 408920
+  },
+  {
+    "id": "story_sippayi_kalakam",
+    "filename": "story_sippayi_kalakam.mp3",
+    "audioUrl": "audio/story_sippayi_kalakam.mp3",
+    "title": "Sippayi Kalakam",
+    "category": "Tamil Story",
+    "description": "Tamil story — The Sepoy Revolt (Sippayi Kalakam)",
+    "duration": "1:36",
+    "seed": 406625
+  },
+  {
+    "id": "story_nanbargal_thinam",
+    "filename": "story_nanbargal_thinam.mp3",
+    "audioUrl": "audio/story_nanbargal_thinam.mp3",
+    "title": "Nanbargal Thinam",
+    "category": "Tamil Story",
+    "description": "Tamil story — Friendship Day (Nanbargal Thinam)",
+    "duration": "1:23",
+    "seed": 397661
+  },
+  {
+    "id": "classical_thirukural",
+    "filename": "classical_thirukural.mp3",
+    "audioUrl": "audio/classical_thirukural.mp3",
+    "title": "Thirukural",
+    "category": "Classical / Literary",
+    "description": "Recitation of the classical Tamil text Thirukural",
+    "duration": "3:00",
+    "seed": 148878
+  },
+  {
+    "id": "classical_thiruvalluvarudan_oru_nal",
+    "filename": "classical_thiruvalluvarudan_oru_nal.mp3",
+    "audioUrl": "audio/classical_thiruvalluvarudan_oru_nal.mp3",
+    "title": "Thiruvalluvarudan Oru Nal",
+    "category": "Classical / Literary",
+    "description": "Classical Tamil — A Day with Thiruvalluvar",
+    "duration": "3:00",
+    "seed": 29115
+  },
+  {
+    "id": "classical_kizhaevandha_natchathiram",
+    "filename": "classical_kizhaevandha_natchathiram.mp3",
+    "audioUrl": "audio/classical_kizhaevandha_natchathiram.mp3",
+    "title": "Kizhaevandha Natchathiram",
+    "category": "Classical / Literary",
+    "description": "Classical Tamil — Kizhaevandha Natchathiram",
+    "duration": "3:00",
+    "seed": 959678
+  },
+  {
+    "id": "classical_vaanoli",
+    "filename": "classical_vaanoli.mp3",
+    "audioUrl": "audio/classical_vaanoli.mp3",
+    "title": "Vaanoli",
+    "category": "Classical / Literary",
+    "description": "Radio-style classical narration — Vaanoli",
+    "duration": "3:00",
+    "seed": 201923
+  },
+  {
+    "id": "devotional_yusuf_nabi",
+    "filename": "devotional_yusuf_nabi.mp3",
+    "audioUrl": "audio/devotional_yusuf_nabi.mp3",
+    "title": "Yusuf Nabi",
+    "category": "Devotional",
+    "description": "Devotional narration — The Prophet Yusuf",
+    "duration": "3:00",
+    "seed": 570218
+  },
+  {
+    "id": "devotional_nabi",
+    "filename": "devotional_nabi.mp3",
+    "audioUrl": "audio/devotional_nabi.mp3",
+    "title": "Nabi",
+    "category": "Devotional",
+    "description": "Devotional narration — The Prophet (Nabi)",
+    "duration": "3:00",
+    "seed": 825885
+  },
+  {
+    "id": "drama_bhuthisali_vivasayi",
+    "filename": "drama_bhuthisali_vivasayi.mp3",
+    "audioUrl": "audio/drama_bhuthisali_vivasayi.mp3",
+    "title": "Bhuthisali Vivasayi",
+    "category": "Drama",
+    "description": "Drama — The Ghost Farmer (Bhuthisali Vivasayi)",
+    "duration": "3:00",
+    "seed": 266969
+  },
+  {
+    "id": "drama_ilavarasanum_maya_sangum",
+    "filename": "drama_ilavarasanum_maya_sangum.mp3",
+    "audioUrl": "audio/drama_ilavarasanum_maya_sangum.mp3",
+    "title": "Ilavarasanum Maya Sangum",
+    "category": "Drama",
+    "description": "Drama — The Prince and the Magic Troupe",
+    "duration": "3:00",
+    "seed": 116878
+  },
+  {
+    "id": "drama_vidhaigal",
+    "filename": "drama_vidhaigal.mp3",
+    "audioUrl": "audio/drama_vidhaigal.mp3",
+    "title": "Vidhaigal",
+    "category": "Drama",
+    "description": "Drama — Seeds (Vidhaigal)",
+    "duration": "3:00",
+    "seed": 223386
+  },
+  {
+    "id": "intro_promo",
+    "filename": "intro_promo.mp3",
+    "audioUrl": "audio/intro_promo.mp3",
+    "title": "Intro / Promo",
+    "category": "Intro",
+    "description": "Voice-over artist introduction and promo reel",
+    "duration": "0:41",
+    "seed": 688295
+  }
+]

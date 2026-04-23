@@ -1,9 +1,10 @@
 // ============================================================
 // Player.jsx — waveform / vinyl / radio variants
-// CSS-driven (Framer Motion entry animations weren't reliable in this env).
+// Real audio playback via <audio>; the waveform is a decorative
+// deterministic shape seeded per-track.
 // ============================================================
 
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 
 // ------ deterministic pseudo-waveform shape (peaks per track) ------
 function waveShape(seed, bars = 140) {
@@ -21,72 +22,6 @@ function waveShape(seed, bars = 140) {
   return out;
 }
 
-// ------ in-browser synthesized voice-like tone ------
-function useSynthAudio(seed, isPlaying) {
-  const ctxRef = useRef(null);
-  const nodesRef = useRef(null);
-  const analyserRef = useRef(null);
-
-  const ensureCtx = useCallback(() => {
-    if (!ctxRef.current) {
-      const AC = window.AudioContext || window.webkitAudioContext;
-      ctxRef.current = new AC();
-      analyserRef.current = ctxRef.current.createAnalyser();
-      analyserRef.current.fftSize = 256;
-      analyserRef.current.connect(ctxRef.current.destination);
-    }
-    return ctxRef.current;
-  }, []);
-
-  const start = useCallback(() => {
-    const ctx = ensureCtx();
-    if (ctx.state === 'suspended') ctx.resume();
-    if (nodesRef.current) return;
-    const base = 110 + (seed % 40);
-    const o1 = ctx.createOscillator(); o1.type = 'sine'; o1.frequency.value = base;
-    const o2 = ctx.createOscillator(); o2.type = 'triangle'; o2.frequency.value = base * 1.5;
-    const o3 = ctx.createOscillator(); o3.type = 'sine'; o3.frequency.value = base * 2.01;
-    const lfo = ctx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = 0.25 + (seed % 5) * 0.07;
-    const lfoGain = ctx.createGain(); lfoGain.gain.value = 0.08;
-    lfo.connect(lfoGain);
-    const g = ctx.createGain(); g.gain.value = 0.0001;
-    g.gain.exponentialRampToValueAtTime(0.06, ctx.currentTime + 0.6);
-    lfoGain.connect(g.gain);
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'lowpass'; filter.frequency.value = 1400; filter.Q.value = 0.4;
-    [o1, o2, o3].forEach(o => o.connect(filter));
-    filter.connect(g);
-    g.connect(analyserRef.current);
-    o1.start(); o2.start(); o3.start(); lfo.start();
-    nodesRef.current = { o1, o2, o3, lfo, g };
-  }, [seed, ensureCtx]);
-
-  const stop = useCallback(() => {
-    if (!nodesRef.current || !ctxRef.current) return;
-    const { o1, o2, o3, lfo, g } = nodesRef.current;
-    const t = ctxRef.current.currentTime;
-    g.gain.cancelScheduledValues(t);
-    g.gain.setValueAtTime(g.gain.value, t);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.25);
-    setTimeout(() => { try { o1.stop(); o2.stop(); o3.stop(); lfo.stop(); } catch(e){} }, 300);
-    nodesRef.current = null;
-  }, []);
-
-  useEffect(() => {
-    if (isPlaying) start(); else stop();
-    return () => stop();
-  }, [isPlaying, start, stop]);
-
-  const getLevels = useCallback(() => {
-    if (!analyserRef.current) return null;
-    const arr = new Uint8Array(analyserRef.current.frequencyBinCount);
-    analyserRef.current.getByteFrequencyData(arr);
-    return arr;
-  }, []);
-
-  return { getLevels };
-}
-
 function TrackMeta({ track, idx, total }) {
   return (
     <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, flexWrap: 'wrap' }}>
@@ -94,7 +29,6 @@ function TrackMeta({ track, idx, total }) {
         № {String(idx + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
       </span>
       <span className="mono" style={{ color: 'var(--accent)' }}>{track.category}</span>
-      <span className="mono" style={{ color: 'var(--ink-3)' }}>{track.language}</span>
       <span className="mono" style={{ color: 'var(--ink-3)' }}>{track.duration}</span>
     </div>
   );
@@ -125,42 +59,87 @@ function PlayBtn({ playing, onClick, big = true, color }) {
   );
 }
 
-// shared playback hook
+function parseMS(str) {
+  if (!str) return 0;
+  const [m, s] = str.split(':').map(Number);
+  return (Number.isFinite(m) ? m : 0) * 60 + (Number.isFinite(s) ? s : 0);
+}
+
+// Real-audio playback hook: wraps a hidden <audio> element keyed by track.id.
+// Returns refs/handlers the player variants wire into their <audio> tag.
 function usePlayback(track) {
+  const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const totalSec = useMemo(() => {
-    const [m, s] = track.duration.split(':').map(Number);
-    return m * 60 + s;
-  }, [track.duration]);
-  const startedAtRef = useRef(0);
-  const startedProgressRef = useRef(0);
-  const rafRef = useRef(null);
-
-  useSynthAudio(track.seed, isPlaying);
-
-  useEffect(() => { setIsPlaying(false); setProgress(0); }, [track.id]);
+  const [progress, setProgressState] = useState(0);
+  const [totalSec, setTotalSec] = useState(() => parseMS(track.duration));
 
   useEffect(() => {
-    if (!isPlaying) { cancelAnimationFrame(rafRef.current); return; }
-    startedAtRef.current = performance.now();
-    startedProgressRef.current = progress;
-    const tick = () => {
-      const elapsed = (performance.now() - startedAtRef.current) / 1000;
-      const p = Math.min(1, startedProgressRef.current + elapsed / totalSec);
-      setProgress(p);
-      if (p >= 1) { setIsPlaying(false); return; }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  // eslint-disable-next-line
+    setIsPlaying(false);
+    setProgressState(0);
+    setTotalSec(parseMS(track.duration));
+  }, [track.id, track.duration]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      const p = audio.play();
+      if (p && typeof p.catch === 'function') p.catch(() => setIsPlaying(false));
+    } else {
+      audio.pause();
+    }
   }, [isPlaying, track.id]);
 
-  return { isPlaying, setIsPlaying, progress, setProgress, totalSec, startedAtRef, startedProgressRef };
+  const onTimeUpdate = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const dur = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : totalSec;
+    setProgressState(dur > 0 ? audio.currentTime / dur : 0);
+  };
+  const onLoadedMetadata = () => {
+    const audio = audioRef.current;
+    if (audio && Number.isFinite(audio.duration) && audio.duration > 0) {
+      setTotalSec(audio.duration);
+    }
+  };
+  const onEnded = () => {
+    setIsPlaying(false);
+    setProgressState(1);
+  };
+
+  const seekToFraction = (p) => {
+    const clamped = Math.max(0, Math.min(1, p));
+    setProgressState(clamped);
+    const audio = audioRef.current;
+    if (audio && Number.isFinite(audio.duration) && audio.duration > 0) {
+      audio.currentTime = clamped * audio.duration;
+    }
+  };
+
+  const restart = () => {
+    const audio = audioRef.current;
+    if (audio) audio.currentTime = 0;
+    setProgressState(0);
+  };
+
+  return {
+    audioRef,
+    audioProps: {
+      src: track.audioUrl,
+      preload: 'metadata',
+      onTimeUpdate,
+      onLoadedMetadata,
+      onEnded,
+    },
+    isPlaying, setIsPlaying,
+    progress, setProgress: seekToFraction,
+    totalSec,
+    restart,
+  };
 }
 
 const fmt = (sec) => {
+  if (!Number.isFinite(sec) || sec < 0) return '0:00';
   const m = Math.floor(sec / 60), s = Math.floor(sec % 60);
   return `${m}:${String(s).padStart(2, '0')}`;
 };
@@ -171,7 +150,7 @@ const fmt = (sec) => {
 function WaveformPlayer({ track, idx, total }) {
   const BARS = 140;
   const shape = useMemo(() => waveShape(track.seed, BARS), [track.seed]);
-  const { isPlaying, setIsPlaying, progress, setProgress, totalSec, startedAtRef, startedProgressRef } = usePlayback(track);
+  const { audioRef, audioProps, isPlaying, setIsPlaying, progress, setProgress, totalSec, restart } = usePlayback(track);
   const [hover, setHover] = useState(null);
   const containerRef = useRef(null);
 
@@ -179,10 +158,6 @@ function WaveformPlayer({ track, idx, total }) {
     const r = containerRef.current.getBoundingClientRect();
     const p = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
     setProgress(p);
-    if (isPlaying) {
-      startedAtRef.current = performance.now();
-      startedProgressRef.current = p;
-    }
   };
   const onMove = (e) => {
     const r = containerRef.current.getBoundingClientRect();
@@ -191,17 +166,13 @@ function WaveformPlayer({ track, idx, total }) {
 
   return (
     <div style={{ width: '100%' }}>
+      <audio ref={audioRef} {...audioProps} />
       <TrackMeta track={track} idx={idx} total={total} />
       <h2 className="display" style={{
         fontSize: 'clamp(28px, 4vw, 46px)', lineHeight: 1.05,
         margin: '14px 0 6px 0', color: 'var(--ink)',
         fontWeight: 500, letterSpacing: '-0.015em'
       }}>{track.title}</h2>
-      {track.titleEn && (
-        <div style={{ fontStyle: 'italic', color: 'var(--ink-2)', fontSize: 18, marginBottom: 14 }}>
-          “{track.titleEn}”
-        </div>
-      )}
       <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 17, lineHeight: 1.55, marginTop: 8 }}>
         {track.description}
       </p>
@@ -260,7 +231,7 @@ function WaveformPlayer({ track, idx, total }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginTop: 22 }}>
         <PlayBtn playing={isPlaying} onClick={() => setIsPlaying(p => !p)} />
         <button
-          onClick={() => setProgress(0)}
+          onClick={restart}
           className="mono"
           style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--ink-2)', padding: '6px 10px' }}
         >Restart</button>
@@ -276,16 +247,15 @@ function WaveformPlayer({ track, idx, total }) {
 // VINYL
 // ============================================================
 function VinylPlayer({ track, idx, total }) {
-  const { isPlaying, setIsPlaying, progress, totalSec } = usePlayback(track);
+  const { audioRef, audioProps, isPlaying, setIsPlaying, progress, totalSec } = usePlayback(track);
   const tonearmAngle = isPlaying ? -10 - progress * 22 : -32;
-  // for spinning: use rotate accumulated via state on raf
   const [rot, setRot] = useState(0);
   useEffect(() => {
     if (!isPlaying) return;
     let raf, last = performance.now();
     const tick = (now) => {
       const dt = now - last; last = now;
-      setRot(r => (r + dt * 0.09) % 360); // 90deg/sec → 4s per rev
+      setRot(r => (r + dt * 0.09) % 360);
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -294,14 +264,12 @@ function VinylPlayer({ track, idx, total }) {
 
   return (
     <div style={{ width: '100%' }}>
+      <audio ref={audioRef} {...audioProps} />
       <TrackMeta track={track} idx={idx} total={total} />
       <h2 className="display" style={{
         fontSize: 'clamp(28px, 4vw, 46px)', lineHeight: 1.05,
         margin: '14px 0 6px 0', fontWeight: 500, letterSpacing: '-0.015em'
       }}>{track.title}</h2>
-      {track.titleEn && (
-        <div style={{ fontStyle: 'italic', color: 'var(--ink-2)', fontSize: 18, marginBottom: 14 }}>“{track.titleEn}”</div>
-      )}
       <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 17, lineHeight: 1.55 }}>{track.description}</p>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 30, marginTop: 28, flexWrap: 'wrap' }}>
@@ -361,20 +329,18 @@ function VinylPlayer({ track, idx, total }) {
 // RADIO
 // ============================================================
 function RadioPlayer({ track, idx, total }) {
-  const { isPlaying, setIsPlaying, progress } = usePlayback(track);
+  const { audioRef, audioProps, isPlaying, setIsPlaying, progress } = usePlayback(track);
   const dialAngle = -55 + ((idx / Math.max(1, total - 1)) * 110);
   const needleLeft = 20 + (idx / Math.max(1, total - 1)) * 60;
 
   return (
     <div style={{ width: '100%' }}>
+      <audio ref={audioRef} {...audioProps} />
       <TrackMeta track={track} idx={idx} total={total} />
       <h2 className="display" style={{
         fontSize: 'clamp(28px, 4vw, 46px)', lineHeight: 1.05,
         margin: '14px 0 6px 0', fontWeight: 500
       }}>{track.title}</h2>
-      {track.titleEn && (
-        <div style={{ fontStyle: 'italic', color: 'var(--ink-2)', fontSize: 18, marginBottom: 14 }}>“{track.titleEn}”</div>
-      )}
       <p style={{ color: 'var(--ink-2)', maxWidth: 620, fontSize: 17, lineHeight: 1.55 }}>{track.description}</p>
 
       <div style={{
