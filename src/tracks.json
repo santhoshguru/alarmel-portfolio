@@ -7,6 +7,7 @@
     "category": "Advertisement",
     "description": "Commercial voice-over for Thangamayil Jewellery",
     "duration": "0:20",
+    "durationISO": "PT20S",
     "seed": 418696
   },
   {
@@ -17,17 +18,8 @@
     "category": "Advertisement",
     "description": "Commercial voice-over for Thangamayil Smart Gold",
     "duration": "0:33",
+    "durationISO": "PT33S",
     "seed": 148491
-  },
-  {
-    "id": "ad_alarmel_realestate",
-    "filename": "ad_alarmel_realestate.mp3",
-    "audioUrl": "audio/ad_alarmel_realestate.mp3",
-    "title": "Alarmel Real Estate",
-    "category": "Advertisement",
-    "description": "Commercial voice-over for Alarmel Real Estate",
-    "duration": "0:20",
-    "seed": 443036
   },
   {
     "id": "documentary_smart_salem",
@@ -37,17 +29,8 @@
     "category": "Documentary",
     "description": "Documentary narration — Smart Salem",
     "duration": "1:58",
+    "durationISO": "PT1M58S",
     "seed": 382105
-  },
-  {
-    "id": "documentary",
-    "filename": "documentary.mp3",
-    "audioUrl": "audio/documentary.mp3",
-    "title": "Documentary Sample",
-    "category": "Documentary",
-    "description": "Documentary narration sample",
-    "duration": "1:26",
-    "seed": 980302
   },
   {
     "id": "dubbing_bharathi_baskar",
@@ -57,6 +40,7 @@
     "category": "Dubbing",
     "description": "Dubbing voice-over — Bharathi Baskar",
     "duration": "0:55",
+    "durationISO": "PT55S",
     "seed": 415261
   },
   {
@@ -67,6 +51,7 @@
     "category": "News Reading",
     "description": "News bulletin reading sample",
     "duration": "1:15",
+    "durationISO": "PT1M15S",
     "seed": 297775
   },
   {
@@ -77,6 +62,7 @@
     "category": "Audiobook (Adult)",
     "description": "Audiobook narration — Kattidam Sollum Kadhai",
     "duration": "1:26",
+    "durationISO": "PT1M26S",
     "seed": 799705
   },
   {
@@ -87,6 +73,7 @@
     "category": "Audiobook (Adult)",
     "description": "Audiobook narration — Yaanai Doctor by Jeyamohan",
     "duration": "1:37",
+    "durationISO": "PT1M37S",
     "seed": 23261
   },
   {
@@ -97,6 +84,7 @@
     "category": "Audiobook (Kids)",
     "description": "Children's audiobook — Do Do Manga",
     "duration": "0:12",
+    "durationISO": "PT12S",
     "seed": 682059
   },
   {
@@ -107,6 +95,7 @@
     "category": "Audiobook (Kids)",
     "description": "Children's audiobook — Oliver",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 998014
   },
   {
@@ -117,6 +106,7 @@
     "category": "Audiobook (Kids)",
     "description": "Children's audiobook — Pigly",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 881892
   },
   {
@@ -127,6 +117,7 @@
     "category": "Audiobook (Kids)",
     "description": "Children's audiobook — Sliced Bread",
     "duration": "1:22",
+    "durationISO": "PT1M22S",
     "seed": 667954
   },
   {
@@ -137,6 +128,7 @@
     "category": "Audiobook (Kids)",
     "description": "Children's audiobook — Super Powers",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 846475
   },
   {
@@ -147,6 +139,7 @@
     "category": "Audiobook (Kids)",
     "description": "Children's audiobook — Little Business Women",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 196705
   },
   {
@@ -157,6 +150,7 @@
     "category": "Audiobook (Kids)",
     "description": "Children's audiobook — Preethi's Wish",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 376054
   },
   {
@@ -167,6 +161,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The Hidden Map",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 65246
   },
   {
@@ -177,6 +172,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Kadasi Mambazham (The Last Mango)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 556863
   },
   {
@@ -187,6 +183,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The Magic Spoon",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 884616
   },
   {
@@ -197,6 +194,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The Emerald Stone (Marakatham Kal)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 899231
   },
   {
@@ -207,6 +205,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The First Prize (Mudhal Parisu)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 257215
   },
   {
@@ -217,6 +216,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The Fruit Thief (Palapazha Thirudan)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 955909
   },
   {
@@ -227,6 +227,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The Paper Thief",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 680624
   },
   {
@@ -237,6 +238,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Paris Corner",
     "duration": "1:56",
+    "durationISO": "PT1M56S",
     "seed": 992054
   },
   {
@@ -247,6 +249,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Pattaboochi Peen",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 479606
   },
   {
@@ -257,6 +260,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Raju's Garden (Rajuvin Thottam)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 15864
   },
   {
@@ -267,6 +271,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Swimming Star",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 716827
   },
   {
@@ -277,6 +282,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Last Mango",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 313342
   },
   {
@@ -287,6 +293,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Ice Thatha (The Ice Grandfather)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 878991
   },
   {
@@ -297,6 +304,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Velli Poolak (Silver Flowers)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 400068
   },
   {
@@ -307,6 +315,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The Secret Tree",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 435316
   },
   {
@@ -317,6 +326,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Hari",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 651609
   },
   {
@@ -327,6 +337,7 @@
     "category": "Tamil Story",
     "description": "Tamil children's story — Chippi",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 834690
   },
   {
@@ -337,6 +348,7 @@
     "category": "Tamil Story",
     "description": "Tamil children's story — Chutti",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 153302
   },
   {
@@ -347,6 +359,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — Grandmother's Magic Staff (Paatiyin Mandhirakol)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 687297
   },
   {
@@ -357,6 +370,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The Magic Staff (Mandhira Kol)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 427156
   },
   {
@@ -367,6 +381,7 @@
     "category": "Tamil Story",
     "description": "Tamil short story — The Sea (Kadal)",
     "duration": "1:29",
+    "durationISO": "PT1M29S",
     "seed": 408920
   },
   {
@@ -377,6 +392,7 @@
     "category": "Tamil Story",
     "description": "Tamil story — The Sepoy Revolt (Sippayi Kalakam)",
     "duration": "1:36",
+    "durationISO": "PT1M36S",
     "seed": 406625
   },
   {
@@ -387,6 +403,7 @@
     "category": "Tamil Story",
     "description": "Tamil story — Friendship Day (Nanbargal Thinam)",
     "duration": "1:23",
+    "durationISO": "PT1M23S",
     "seed": 397661
   },
   {
@@ -397,6 +414,7 @@
     "category": "Classical / Literary",
     "description": "Recitation of the classical Tamil text Thirukural",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 148878
   },
   {
@@ -407,6 +425,7 @@
     "category": "Classical / Literary",
     "description": "Classical Tamil — A Day with Thiruvalluvar",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 29115
   },
   {
@@ -417,6 +436,7 @@
     "category": "Classical / Literary",
     "description": "Classical Tamil — Kizhaevandha Natchathiram",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 959678
   },
   {
@@ -427,6 +447,7 @@
     "category": "Classical / Literary",
     "description": "Radio-style classical narration — Vaanoli",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 201923
   },
   {
@@ -437,6 +458,7 @@
     "category": "Devotional",
     "description": "Devotional narration — The Prophet Yusuf",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 570218
   },
   {
@@ -447,6 +469,7 @@
     "category": "Devotional",
     "description": "Devotional narration — The Prophet (Nabi)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 825885
   },
   {
@@ -457,6 +480,7 @@
     "category": "Drama",
     "description": "Drama — The Ghost Farmer (Bhuthisali Vivasayi)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 266969
   },
   {
@@ -467,6 +491,7 @@
     "category": "Drama",
     "description": "Drama — The Prince and the Magic Troupe",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 116878
   },
   {
@@ -477,6 +502,7 @@
     "category": "Drama",
     "description": "Drama — Seeds (Vidhaigal)",
     "duration": "3:00",
+    "durationISO": "PT3M",
     "seed": 223386
   }
 ]

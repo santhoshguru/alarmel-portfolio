@@ -191,6 +191,9 @@ function About() {
           <p style={{ fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--ink-2)', marginTop: 14, fontStyle: 'italic' }}>
             (Before this life in sound, I spent a long, steady career in Indian banking. The patience it asked of me turned out to be the same the booth asks now.)
           </p>
+          <p style={{ fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--ink-2)', marginTop: 14 }}>
+            Recent work includes the audiobook narration of Jeyamohan's <em>Yaanai Doctor</em> and <em>Kattidam Sollum Kadhai</em>, commercials for Thangamayil Jewellery, the <em>Smart Salem</em> documentary, and a full recitation of the <em>Thirukural</em>.
+          </p>
         </div>
       </div>
 
@@ -465,7 +468,7 @@ function FAQ() {
     },
     {
       q: 'Do you take remote voiceover work?',
-      a: 'Yes. I record from a treated home studio in Chennai and deliver broadcast-quality WAV or MP3 files — typically within two working days for short projects. Remote sessions across time zones by arrangement.',
+      a: 'Yes. I record from a home setup in Chennai and deliver broadcast-quality WAV or MP3 files — typically within two working days for short projects. Remote sessions across time zones by arrangement.',
     },
     {
       q: 'What kinds of projects do you take on?',
